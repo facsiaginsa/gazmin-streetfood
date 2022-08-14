@@ -12,7 +12,7 @@ module.exports = async (username, password) => {
 
     if (user[0] === 1) {
         const payload = {
-            username: user[2][1], 
+            username: user[2][1],
             name: user[2][5],
             address: user[2][7],
         }
@@ -25,5 +25,10 @@ module.exports = async (username, password) => {
             message: "login success",
             payload
         }
+    }
+
+    return {
+        code: 2,
+        message: "Error Occured"
     }
 }

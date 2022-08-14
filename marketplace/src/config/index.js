@@ -7,12 +7,17 @@ module.exports = {
         host: process.env.REDIS_HOST,
         port: process.env.REDIS_PORT,
         user: process.env.REDIS_USER,
-        pass: process.env.REDIS_PASS
+        pass: process.env.REDIS_PASS,
+        schema: {
+            user: process.env.USER_SCHEMA || "user_idx",
+            product: process.env.PRODUCT_SCHEMA || "product_idx",
+            stall: process.env.STALL_SCHEMA || "stall_idx"
+        }
     },
     jwtConfig: {
         secret: process.env.JWT_SECRET
     },
     bcryptConfig: {
         saltRounds: parseInt(process.env.BCRYPT_SALT) || 10
-    }
+    },
 }

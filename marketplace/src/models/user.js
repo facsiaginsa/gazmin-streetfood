@@ -1,12 +1,13 @@
+const { db } = require("../config")
 const app = require("../loaders/fastify")
 const generateID = require("../loaders/uuid")
 
 const searchUserPassword = async (username, password) => {
-    return await app.redis.call("FT.SEARCH", "user_idx", "@username:"+ username +" @password:"+ password)
+    return await app.redis.call("FT.SEARCH", db.schema.user, "@username:"+ username +" @password:"+ password)
 }
 
 const searchUser = async (username) => {
-    return await app.redis.call("FT.SEARCH", "user_idx", "@username:"+ username)
+    return await app.redis.call("FT.SEARCH", db.schema.user, "@username:"+ username)
 }
 
 const createUser = async (username, password, name, address) => {
