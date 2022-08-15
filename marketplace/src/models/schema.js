@@ -10,11 +10,15 @@ const createUserSchema = async () => {
 }
 
 const createProductSchema = async () => {
-    return await app.redis.call("FT.CREATE", db.schema.product, "PREFIX", "1", "product:", "SCHEMA", "name", "TEXT", "description", "TEXT", "price", "NUMERIC", "photo", "TEXT", "stock", "NUMERIC", "rating", "NUMERIC", "stall", "NUMERIC")
+    return await app.redis.call("FT.CREATE", db.schema.product, "PREFIX", "1", "product:", "SCHEMA", "name", "TEXT", "description", "TEXT", "price", "NUMERIC", "photo", "TEXT", "stock", "NUMERIC", "rating", "NUMERIC", "stall", "TEXT", "category", "TAG")
 }
 
 const createStallSchema = async () => {
-    return await app.redis.call("FT.CREATE", db.schema.stall, "PREFIX", "1", "stall:", "SCHEMA", "name", "TEXT", "photo", "TEXT", "description", "TEXT", "location", "TEXT", "streetview", "NUMERIC")
+    return await app.redis.call("FT.CREATE", db.schema.stall, "PREFIX", "1", "stall:", "SCHEMA", "name", "TEXT", "description", "TEXT", "yaw", "NUMERIC", "pitch", "NUMERIC", "scene_id", "TEXT", "rating", "NUMERIC")
+}
+
+const createRatingSchema = async () => {
+
 }
 
 module.exports = { 

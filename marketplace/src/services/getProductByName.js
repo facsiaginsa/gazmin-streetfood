@@ -11,7 +11,7 @@ module.exports = async (name) => {
     }
     
     if (products[0] == 0) {
-        formattedProduct.message = "No prduct match with the name"
+        formattedProduct.message = "No product match with the name"
         formattedProduct.code = 1
     }
 
