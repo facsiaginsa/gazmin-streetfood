@@ -11,7 +11,8 @@ module.exports = {
         schema: {
             user: process.env.USER_SCHEMA || "user_idx",
             product: process.env.PRODUCT_SCHEMA || "product_idx",
-            stall: process.env.STALL_SCHEMA || "stall_idx"
+            stall: process.env.STALL_SCHEMA || "stall_idx",
+            rating: process.env.RATING_SCHEMA || "rating_idx"
         }
     },
     jwtConfig: {

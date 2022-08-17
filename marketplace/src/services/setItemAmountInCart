@@ -1,0 +1,11 @@
+const { setItemAmount, getCart } = require("../models/cart")
+
+module.exports = async (user_id, product_id, amount = 1) => {
+    await setItemAmount(user_id, product_id, amount)
+    let cart = await getCart(user_id)
+    return {
+        code: 0,
+        message: "Set the amount of Item:" + product_id + " by " + amount,
+        cart
+    }
+}

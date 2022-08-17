@@ -1,6 +1,7 @@
 const userAuth = async (req, res) => {
     try {
-        await req.jwtVerify()
+        let decoded = await req.jwtVerify()
+        req.token = decoded
     } catch (error) {
         res.status(401).send({
             code: 1,
@@ -8,3 +9,5 @@ const userAuth = async (req, res) => {
         })
     }
 }
+
+module.exports = userAuth
