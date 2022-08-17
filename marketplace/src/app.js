@@ -23,8 +23,8 @@ app.get("/product/:id", getProductUsingProductId)
 
 // Cart
 app.post("/cart/add/:product_id", { preValidation: userAuth }, addToCart)
-app.delete("/cart/remove/:product_id", { preValidation: userAuth }, removeFromCart)
-app.put("/cart/amount/:product_id", { preValidation: userAuth }, editAmount)
+app.delete("/cart/:product_id", { preValidation: userAuth }, removeFromCart)
+app.put("/cart/:amount_type/:product_id", { preValidation: userAuth }, editAmount)
 app.get("/cart", { preValidation: userAuth }, getCart)
 
 // Payment

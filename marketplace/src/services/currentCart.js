@@ -6,10 +6,10 @@ function findStall(data) {
 
 var cache = []
 
-module.exports = async () => {
+module.exports = function currentCart() {
     return {
         get: function(user_id) {
-            let response = cache.finc(findStall, user_id)
+            let response = cache.find(findStall, user_id)
             return response?.stall_id
         },
         set: function(user_id,stall_id) {

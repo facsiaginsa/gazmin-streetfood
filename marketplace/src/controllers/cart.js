@@ -24,9 +24,11 @@ const removeFromCart = async(req,res) => {
 }
 
 const editAmount = async (req,res) => {
-    const { amount } = req.body
-    const { product_id } = req.params
+    let amount = req.body?.amount || 1
+    const { amount_type, product_id } = req.params
     const user_id = req.token.user_id
+
+    amount = (amount_type === "incr") ? amount : amount * -1
 
     const response = await setItemAmountInCart(user_id, product_id, amount)
 
