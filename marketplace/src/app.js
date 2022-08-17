@@ -7,6 +7,7 @@ const verifySchema = require("./services/verifySchema")
 const { getProduct, getProductUsingProductId } = require("./controllers/product")
 const userAuth = require("./middleware/authorization")
 const { getCart, addToCart, removeFromCart, editAmount } = require("./controllers/cart")
+const { getStall, getStallUsingStallId } = require("./controllers/stall")
 
 // health-check
 app.get("/health-check", healthCheck)
@@ -18,6 +19,10 @@ app.post("/user/register", userRegister)
 // Product
 app.get("/product", getProduct)
 app.get("/product/:id", getProductUsingProductId)
+
+// Stall
+app.get("/stall", getStall)
+app.get("/stall/:id", getStallUsingStallId)
 
 // Rating
 
