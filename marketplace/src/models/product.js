@@ -17,6 +17,14 @@ const searchProductByName = async (name) => {
     }
 }
 
+const searchProductByQuery = async (query) => {
+    try {
+        return await app.redis.call("FT.SEARCH", db.schema.product, query)
+    } catch (error) {
+        app.log.error(error)
+    }
+}
+
 const selectProductById = async (id) => {
     try {
         return await app.redis.hgetall("product:" + id)
@@ -28,5 +36,6 @@ const selectProductById = async (id) => {
 module.exports = { 
     searchAllProduct, 
     searchProductByName,
-    selectProductById
+    selectProductById,
+    searchProductByQuery
 }
