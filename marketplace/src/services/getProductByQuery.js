@@ -27,7 +27,11 @@ module.exports = async (word, price_range, categories) => {
     // Combine the Query
     final_query = weighted_query_name + '|' + weighted_query_description
 
-    console.log(final_query)
+    // console.log(final_query)
+    // (@name:"potato") => { $weight: 5.0; }|(@description:"potato") => { $weight: 2.0; }
+    // (@name:"potato" @price:[5000 9000]) => { $weight: 5.0; }|(@description:"potato" @price:[5000 9000]) => { $weight: 2.0; }
+    // (@name:"potato" @price:[5000 9000] @category:{snack|salty}) => { $weight: 5.0; }|(@description:"potato" @price:[5000 9000] @category:{snack|salty}) => { $weight: 2.0; }
+
     let result = await searchProductByQuery(final_query)
     let formattedResult = await formatConvert(result)
 
