@@ -1,4 +1,4 @@
-const addProducttoCart = require("../services/addProducttoCart")
+const addProducttoCart = require("../services/addProductToCart")
 const getExistingCart = require("../services/getExistingCart")
 const removeProductOnCart = require("../services/removeProductOnCart")
 const setItemAmountInCart = require("../services/setItemAmountInCart")
