@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Gazmin Streetfood</title>
+    <link rel="shortcut icon" href="src/img/favicon.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="src/reset.min.css">
+    <link rel="stylesheet" href="src/style.css">
+</head>
+
+<body class="single-scene view-control-buttons">
+    <div class="searchbox">
+        <input type="search" name="search" id="search" placeholder="Type to search any foods or drinks...">
+    </div>
+
+    <div id="pano"></div>
+
+    <div class="controlButtonsContainer">
+        <div>
+            <a href="javascript:void(0)" id="viewUp" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/up.svg);" title="Look Up"></i>
+            </a>
+            <a href="javascript:void(0)" id="viewDown" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/down.svg);" title="Look Down"></i>
+            </a>
+            <a href="javascript:void(0)" id="viewLeft" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/left.svg);" title="Look Left"></i>
+            </a>
+            <a href="javascript:void(0)" id="viewRight" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/right.svg);" title="Look Right"></i>
+            </a>
+            <a href="javascript:void(0)" id="viewIn" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/plus.svg);" title="Zoom In"></i>
+            </a>
+            <a href="javascript:void(0)" id="viewOut" class="viewControlButton">
+                <i class="icon" style="background-image: url(src/img/minus.svg);" title="Zoom Out"></i>
+            </a>
+            <a href="javascript:void(0)" id="autorotateToggle" class="viewControlButton">
+                <i class="icon off" style="background-image: url(src/img/pause.svg);" title="Start Auto Rotate"></i>
+                <i class="icon on" style="background-image: url(src/img/play.svg);" title="Pause Rotation"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="bottom-navigation">
+        <div>A</div>
+        <div>B</div>
+        <div>C</div>
+        <div>D</div>
+    </div>
+
+    <div id="modal-container" class="hidden"></div>
+
+    <script src="src/js/jquery-3.6.0.min.js"></script>
+    <script src="src/js/screenfull.min.js"></script>
+    <script src="src/js/bowser.min.js"></script>
+    <script src="src/js/marzipano.js"></script>
+    <script src="data.js"></script>
+    <script src="src/js/marzipano.init.js"></script>
+    <script src="src/js/script.js"></script>
+</body>
+
+</html>

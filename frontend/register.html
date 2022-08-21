@@ -1,0 +1,18 @@
+<div class="flex-container">
+    <form action="" method="post">
+        <h1>Register</h1>
+        <label for="email">E-Mail</label>
+        <input type="email" name="email" id="email" required>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+        <button type="submit">Register</button>
+        <p>or <a href="#" id="to-login">Login</a></p>
+    </form>
+</div>
+
+<script>
+    $('#to-login').on('click', (e) => {
+        e.preventDefault();
+        $('#modal-container').load('login.html');
+    });
+</script>
