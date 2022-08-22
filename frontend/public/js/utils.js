@@ -38,7 +38,7 @@ $(document).ready(function() {
             data: JSON.stringify({
                 username: $('#email').val(),
                 password: $('#password').val(),
-                name: $('#password').val(),
+                name: $('#name').val(),
                 address: $('#address').val()
             }),
             success: function(response) {
@@ -48,6 +48,7 @@ $(document).ready(function() {
 
                 if (response.code != 0) {
                     // give message to user --> response.message
+                    console.log(response)
                 }
             }
         });
@@ -57,5 +58,15 @@ $(document).ready(function() {
         e.preventDefault();
 
         sessionStorage.clear();
+    });
+
+    $('#to-login').on('click', (e) => {
+        e.preventDefault();
+        $('#modal-container').load('login.html');
+    });
+
+    $('#to-register').on('click', (e) => {
+        e.preventDefault();
+        $('#modal-container').load('register.html');
     });
 })
