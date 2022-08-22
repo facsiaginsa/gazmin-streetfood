@@ -1,3 +1,5 @@
+var MARKETPLACE_URL = "https://gazmin-marketplace.herokuapp.com";
+var STREETVIEW_URL = "https://gazmin-streetview.herokuapp.com";
 var APP_DATA = {
     "scenes": [
         {

@@ -1,18 +1,15 @@
 <div class="flex-container">
-    <form action="" method="post">
+    <form id="login-form">
         <h1>Login</h1>
         <label for="email">E-Mail</label>
         <input type="email" name="email" id="email" required>
         <label for="password">Password</label>
         <input type="password" name="password" id="password" required>
-        <button type="submit">Login</button>
+        <input id="login-button" type="submit">Login</button>
         <p>or <a href="#" id="to-register">Register</a></p>
     </form>
 </div>
 
-<script>
-    $('#to-register').on('click', (e) => {
-        e.preventDefault();
-        $('#modal-container').load('register.html');
-    });
-</script>
+<script defer src="/js/jquery-3.6.0.min.js"></script>
+<script defer src="/js/data.js"></script>
+<script defer src="/js/utils.js"></script>
