@@ -11,6 +11,9 @@ const jsonStringifyCart = jsonStringify({
         status: {
             type: "integer"
         },
+        notes: {
+            type: "string"
+        },
         products: {
             type: "array",
             items: {

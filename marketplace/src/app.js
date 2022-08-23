@@ -6,7 +6,7 @@ const { userLogin, userRegister } = require("./controllers/user")
 const verifySchema = require("./services/verifySchema")
 const { getProduct, getProductUsingProductId } = require("./controllers/product")
 const userAuth = require("./middleware/authorization")
-const { getCart, addToCart, removeFromCart, editAmount } = require("./controllers/cart")
+const { getCart, addToCart, removeFromCart, editAmount, setNotes } = require("./controllers/cart")
 const { getStall, getStallUsingStallId } = require("./controllers/stall")
 
 // health-check
@@ -28,6 +28,7 @@ app.get("/stall/:id", getStallUsingStallId)
 
 // Cart
 app.post("/cart/add/:product_id", { preValidation: userAuth }, addToCart)
+app.put("/cart/notes", { preValidation: userAuth }, setNotes)
 app.delete("/cart/:product_id", { preValidation: userAuth }, removeFromCart)
 app.put("/cart/:amount_type/:product_id", { preValidation: userAuth }, editAmount)
 app.get("/cart", { preValidation: userAuth }, getCart)

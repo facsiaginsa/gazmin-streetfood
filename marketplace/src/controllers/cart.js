@@ -2,6 +2,7 @@ const addProducttoCart = require("../services/addProductToCart")
 const getExistingCart = require("../services/getExistingCart")
 const removeProductOnCart = require("../services/removeProductOnCart")
 const setItemAmountInCart = require("../services/setItemAmountInCart")
+const setNotesOnCart = require("../services/setNotesOnCart")
 
 const addToCart = async (req, res) => {
     const { stall_id, amount } = req.body
@@ -41,9 +42,20 @@ const getCart = async (req,res) => {
     res.status(200).send(response)
 }
 
+const setNotes = async (req,res) => {
+    const user_id = req.token.user_id
+
+    let { notes } = req.body
+
+    const response = await setNotesOnCart(user_id, notes)
+
+    res.status(200).send(response)
+}
+
 module.exports = {
     addToCart,
     removeFromCart,
     editAmount,
-    getCart
+    getCart,
+    setNotes
 }

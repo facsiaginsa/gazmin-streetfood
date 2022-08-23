@@ -12,6 +12,7 @@ const setCart = async (user_id, product_id, stall_id, amount) => {
     let payload = jsonStringifyCart({
         stall: stall_id,
         status: 0,
+        notes: " ",
         products: [{
             product_id,
             amount
@@ -67,11 +68,21 @@ const deleteCart = async (user_id) => {
     )
 }
 
+const setNotes = async (user_id, notes) => {
+    return await app.redis.call(
+        "JSON.SET",
+        "cart:"+ user_id,
+        "$.notes",
+        '"'+ notes +'"'
+    )
+}
+
 module.exports = {
     setCart,
     addItemInCart,
     deleteItemInCart,
     setItemAmount,
     deleteCart,
-    getCart
+    getCart,
+    setNotes
 }
