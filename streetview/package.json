@@ -1,4 +1,15 @@
 {
+  "name": "streetview",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "APACHE",
   "dependencies": {
     "@fastify/cors": "^8.1.0",
     "@fastify/redis": "^6.0.0",

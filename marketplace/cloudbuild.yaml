@@ -1,0 +1,32 @@
+steps:
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0', 'marketplace/.' ]
+- name: 'gcr.io/cloud-builders/docker'
+  args: [ 'push', 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0' ]
+- name: 'gcr.io/cloud-builders/gcloud'
+  args:
+  - 'run'
+  - 'deploy'
+  - 'marketplace'
+  - '--image'
+  - 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'
+  - '--region'
+  - 'us-central1'
+  - '--platform'
+  - 'managed'
+  - '--allow-unauthenticated'
+  env:
+  - 'REDIS_HOST=redis-19169.c60.us-west-1-2.ec2.cloud.redislabs.com'
+  - 'REDIS_PORT=19169'
+  - 'REDIS_USER=gazmin'
+  secretEnv: 
+  - REDIS_PASS
+  - JWT_SECRET
+availableSecrets:
+  secretManager:
+  - versionName: projects/essential-tower-359509/secrets/marketplace-redis-pass/versions/1
+    env: REDIS_PASS
+  - versionName: projects/essential-tower-359509/secrets/marketplace-jwt-secret/versions/1
+    env: JWT_SECRET
+images:
+- 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'

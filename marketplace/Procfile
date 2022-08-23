@@ -1,1 +1,0 @@
-web: cd marketplace/src && node app.js

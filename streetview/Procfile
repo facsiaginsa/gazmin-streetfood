@@ -1,1 +1,0 @@
-web: cd streetview/src && node app.js
