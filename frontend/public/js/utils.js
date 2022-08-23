@@ -1,4 +1,6 @@
 $(document).ready(function() {
+
+    // Login Function
     $('#login-button').on('click', (e) => {
         e.preventDefault();
     
@@ -28,6 +30,7 @@ $(document).ready(function() {
         });
     });
 
+    // Register Function
     $('#register-button').on('click', (e) => {
         e.preventDefault();
     
@@ -54,19 +57,88 @@ $(document).ready(function() {
         });
     });
 
+    // Logout Function
     $('#logout-button').on('click', (e) => {
         e.preventDefault();
 
         sessionStorage.clear();
     });
 
+    // Go to Login Page
     $('#to-login').on('click', (e) => {
         e.preventDefault();
         $('#modal-container').load('login.html');
     });
 
+    // Go to Register Page
     $('#to-register').on('click', (e) => {
         e.preventDefault();
         $('#modal-container').load('register.html');
     });
+
+    // Search function
+    {
+        let typingTimer // timer object
+        let searchDelay = 400; // in miliseconds
+
+        //On keyup, start the countdown delay
+        $('#search').on('keyup', function () {
+        clearTimeout(typingTimer);
+        typingTimer = setTimeout(() => {
+            let word = $('#search').val()
+            console.log(window.MARKETPLACE_URL + "/product?word=" + word)
+
+            $.ajax({
+                url: window.MARKETPLACE_URL + "/product?" + word,
+                type: "GET",
+                contentType: "application/json",
+                success: function(response) {
+                    if (response.code === 0) {
+                        $.each(response.data, displaySearchResult)
+                    }
+
+                    if (response.code != 0) {
+                        console.log(response.data)
+                    }
+                }
+            });
+        }, searchDelay);
+        });
+
+        //on keydown, clear the countdown 
+        $('#search').on('keydown', function () {
+            clearTimeout(typingTimer);
+        });
+
+        //Add <li> dom for each search result
+        function displaySearchResult(index, product) {
+
+            /* 
+                available object:
+                product.name
+                product.description
+                product.id
+                product.stall
+                product.photo
+                product.rating
+                product.category
+                product.price
+                product.stock
+            */
+
+            let li = $('<li/>')
+                .addClass('result-item')
+                .appendTo($('#search-result'));
+
+            let title = $('<h3/>')
+                .addClass('result-item-title')
+                .text(product.name)
+                .appendTo(li);
+
+            let description = $('<p/>')
+                .addClass('result-item-description')
+                .text(product.description)
+                .appendTo(li);
+        }
+    }
 })
