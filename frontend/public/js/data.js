@@ -1,5 +1,5 @@
-var MARKETPLACE_URL = "https://gazmin-marketplace.herokuapp.com";
-var STREETVIEW_URL = "https://gazmin-streetview.herokuapp.com";
+var MARKETPLACE_URL = "https://gazmin-marketplace.facsiaginsa.com";
+var STREETVIEW_URL = "https://gazmin-streetview.facsiaginsa.com";
 var APP_DATA = {
     "scenes": [
         {
