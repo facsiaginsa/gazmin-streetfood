@@ -16,8 +16,7 @@ steps:
   - 'managed'
   - '--allow-unauthenticated'
   env:
-  - 'PORT=3000'
-  - 'IPBIND="0.0.0.0"'
+  - 'PORT=8080'
   - 'REDIS_HOST=redis-19169.c60.us-west-1-2.ec2.cloud.redislabs.com'
   - 'REDIS_PORT=19169'
   - 'REDIS_USER=gazmin'
