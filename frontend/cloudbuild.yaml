@@ -17,3 +17,4 @@ steps:
   - '--allow-unauthenticated'
 images:
 - 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/frontend:1.0'
+
