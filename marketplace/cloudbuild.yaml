@@ -24,9 +24,9 @@ steps:
   - JWT_SECRET
 availableSecrets:
   secretManager:
-  - versionName: projects/essential-tower-359509/secrets/marketplace-redis-pass/versions/1
+  - versionName: projects/essential-tower-359509/secrets/marketplace-redis-pass
     env: REDIS_PASS
-  - versionName: projects/essential-tower-359509/secrets/marketplace-jwt-secret/versions/1
+  - versionName: projects/essential-tower-359509/secrets/marketplace-jwt-secret
     env: JWT_SECRET
 images:
 - 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'

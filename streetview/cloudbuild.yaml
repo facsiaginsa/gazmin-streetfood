@@ -23,7 +23,7 @@ steps:
   - REDIS_PASS
 availableSecrets:
   secretManager:
-  - versionName: projects/essential-tower-359509/secrets/streetview-redis-pass/versions/1
+  - versionName: projects/essential-tower-359509/secrets/streetview-redis-pass
     env: REDIS_PASS
 images:
 - 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/streetview:1.0'
