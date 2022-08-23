@@ -724,7 +724,7 @@ form a {
 #close-modal {
     width: 25px;
     height: 25px;
-    background: url(img/closemodal.svg) center center no-repeat;
+    background: url(/img/closemodal.svg) center center no-repeat;
     background-size: contain;
     border: none;
     cursor: pointer;
