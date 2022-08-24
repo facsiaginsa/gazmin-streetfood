@@ -86,7 +86,7 @@ $(document).ready(function() {
         clearTimeout(typingTimer);
         typingTimer = setTimeout(() => {
             let word = $('#search').val()
-            console.log(window.MARKETPLACE_URL + "/product?word=" + word)
+            // console.log(window.MARKETPLACE_URL + "/product?word=" + word)
 
             $.ajax({
                 url: window.MARKETPLACE_URL + "/product?" + word,
@@ -113,6 +113,7 @@ $(document).ready(function() {
         //Add <li> dom for each search result
         function displaySearchResult(index, product) {
 
+            console.log(product.name)
             /* 
                 available object:
                 product.name
