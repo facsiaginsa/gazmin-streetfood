@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
 
     // Login Function
     $('#login-button').on('click', (e) => {
         e.preventDefault();
-    
+
         $.ajax({
             url: window.MARKETPLACE_URL + "/user/login",
             type: "POST",
@@ -12,7 +12,7 @@ $(document).ready(function() {
                 username: $('#email').val(),
                 password: $('#password').val()
             }),
-            success: function(response) {
+            success: function (response) {
                 if (response.code === 0) {
                     sessionStorage.setItem("name", response.userData.name)
                     sessionStorage.setItem("token", response.userData.token)
@@ -33,7 +33,7 @@ $(document).ready(function() {
     // Register Function
     $('#register-button').on('click', (e) => {
         e.preventDefault();
-    
+
         $.ajax({
             url: window.MARKETPLACE_URL + "/user/register",
             type: "POST",
@@ -44,7 +44,7 @@ $(document).ready(function() {
                 name: $('#name').val(),
                 address: $('#address').val()
             }),
-            success: function(response) {
+            success: function (response) {
                 if (response.code === 0) {
                     window.location.href = "/login?message='" + response.message + "'"
                 }
@@ -83,26 +83,28 @@ $(document).ready(function() {
 
         //On keyup, start the countdown delay
         $('#search').on('keyup', function () {
-        clearTimeout(typingTimer);
-        typingTimer = setTimeout(() => {
-            let word = $('#search').val()
-            // console.log(window.MARKETPLACE_URL + "/product?word=" + word)
+            clearTimeout(typingTimer);
+            typingTimer = setTimeout(() => {
+                let word = $('#search').val()
+                // console.log(window.MARKETPLACE_URL + "/product?word=" + word)
 
-            $.ajax({
-                url: window.MARKETPLACE_URL + "/product?" + word,
-                type: "GET",
-                contentType: "application/json",
-                success: function(response) {
-                    if (response.code === 0) {
-                        $.each(response.data, displaySearchResult)
-                    }
+                $.ajax({
+                    url: window.MARKETPLACE_URL + "/product?" + word,
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (response) {
+                        $('#search + .search-results').empty();
 
-                    if (response.code != 0) {
-                        console.log(response.data)
+                        if (response.code === 0) {
+                            $.each(response.data, displaySearchResult)
+                        }
+
+                        if (response.code != 0) {
+                            console.log(response.data)
+                        }
                     }
-                }
-            });
-        }, searchDelay);
+                });
+            }, searchDelay);
         });
 
         //on keydown, clear the countdown 
@@ -113,7 +115,12 @@ $(document).ready(function() {
         //Add <li> dom for each search result
         function displaySearchResult(index, product) {
 
-            console.log(product.name)
+            $('#search + .search-results').append(
+                '<div><img src="' + product.photo + '" class="thumbnail"><div><span class="product-name">'
+                + product.name + '</span><span class="product-stall">' + product.stall + '</span></div><div class="next-arrow"></div></div>'
+            );
+
+            console.log('Showing ' + product.name)
             /* 
                 available object:
                 product.name
@@ -126,20 +133,6 @@ $(document).ready(function() {
                 product.price
                 product.stock
             */
-
-            let li = $('<li/>')
-                .addClass('result-item')
-                .appendTo($('#search-result'));
-
-            let title = $('<h3/>')
-                .addClass('result-item-title')
-                .text(product.name)
-                .appendTo(li);
-
-            let description = $('<p/>')
-                .addClass('result-item-description')
-                .text(product.description)
-                .appendTo(li);
         }
     }
 })
