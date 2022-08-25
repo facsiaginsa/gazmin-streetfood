@@ -16,6 +16,7 @@
 <body class="single-scene view-control-buttons">
     <div class="searchbox">
         <input type="search" name="search" id="search" placeholder="Type to search any foods or drinks...">
+        <div class="search-results"></div>
     </div>
 
     <div id="pano"></div>
@@ -54,7 +55,9 @@
         <div>D</div>
     </div>
 
-    <div id="modal-container" class="hidden"></div>
+    <div id="modal-container" class="hidden">
+        <div id="modal-content"></div>
+    </div>
 
     <script defer src="/js/jquery-3.6.0.min.js"></script>
     <script defer src="/js/screenfull.min.js"></script>
