@@ -605,6 +605,7 @@ body.fullscreen-enabled #fullscreenToggle {
     flex: 1;
     padding: 15px;
     text-align: center;
+    cursor: pointer;
 }
 
 .bottom-navigation>div:not(:last-child) {
