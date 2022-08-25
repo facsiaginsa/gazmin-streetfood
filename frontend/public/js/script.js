@@ -10,7 +10,7 @@ function callModal(content) {
 
         $.ajax({
             url: target,
-            type: "GET",
+            type: 'GET',
             success: function (response) {
                 $('#modal-content').html(response);
                 $('#modal-container').removeClass('hidden');
@@ -40,6 +40,12 @@ function callModal(content) {
             $('#modal-container').addClass('hidden');
     }
 };
+
+$('#search').on('change paste keyup', () => {
+    if (!$('#search').val()) {
+        $('#search + .search-results').empty();
+    }
+});
 
 $('#nav-cart').on('click', () => {
     callModal('checkout');

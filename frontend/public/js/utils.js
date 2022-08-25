@@ -1,26 +1,26 @@
-$(document).ready(function () {
+$(document).ready(() => {
 
     // Login Function
     $('#login-button').on('click', (e) => {
         e.preventDefault();
 
         $.ajax({
-            url: window.MARKETPLACE_URL + "/user/login",
-            type: "POST",
-            contentType: "application/json",
+            url: window.MARKETPLACE_URL + '/user/login',
+            type: 'POST',
+            contentType: 'application/json',
             data: JSON.stringify({
                 username: $('#email').val(),
                 password: $('#password').val()
             }),
-            success: function (response) {
+            success: (response) => {
                 if (response.code === 0) {
-                    sessionStorage.setItem("name", response.userData.name)
-                    sessionStorage.setItem("token", response.userData.token)
-                    sessionStorage.setItem("address", response.userData.address)
-                    sessionStorage.setItem("email", response.userData.username)
-                    sessionStorage.setItem("id", response.userData.user_id)
+                    sessionStorage.setItem('name', response.userData.name)
+                    sessionStorage.setItem('token', response.userData.token)
+                    sessionStorage.setItem('address', response.userData.address)
+                    sessionStorage.setItem('email', response.userData.username)
+                    sessionStorage.setItem('id', response.userData.user_id)
 
-                    window.location.href = "/?message='" + response.message + "'"
+                    window.location.href = '/?message="' + response.message + '"'
                 }
 
                 if (response.code != 0) {
@@ -35,18 +35,18 @@ $(document).ready(function () {
         e.preventDefault();
 
         $.ajax({
-            url: window.MARKETPLACE_URL + "/user/register",
-            type: "POST",
-            contentType: "application/json",
+            url: window.MARKETPLACE_URL + '/user/register',
+            type: 'POST',
+            contentType: 'application/json',
             data: JSON.stringify({
                 username: $('#email').val(),
                 password: $('#password').val(),
                 name: $('#name').val(),
                 address: $('#address').val()
             }),
-            success: function (response) {
+            success: (response) => {
                 if (response.code === 0) {
-                    window.location.href = "/login?message='" + response.message + "'"
+                    window.location.href = '/login?message="' + response.message + '"'
                 }
 
                 if (response.code != 0) {
@@ -82,33 +82,35 @@ $(document).ready(function () {
         let searchDelay = 400; // in miliseconds
 
         //On keyup, start the countdown delay
-        $('#search').on('keyup', function () {
+        $('#search').on('keyup', () => {
             clearTimeout(typingTimer);
             typingTimer = setTimeout(() => {
                 let word = $('#search').val()
-                // console.log(window.MARKETPLACE_URL + "/product?word=" + word)
+                // console.log(window.MARKETPLACE_URL + '/product?word="' + word + '"')
 
-                $.ajax({
-                    url: window.MARKETPLACE_URL + "/product?" + word,
-                    type: "GET",
-                    contentType: "application/json",
-                    success: function (response) {
-                        $('#search + .search-results').empty();
+                if ($('#search').val()) {
+                    $.ajax({
+                        url: window.MARKETPLACE_URL + '/product?"' + word + '"',
+                        type: 'GET',
+                        contentType: 'application/json',
+                        success: (response) => {
+                            $('#search + .search-results').empty();
 
-                        if (response.code === 0) {
-                            $.each(response.data, displaySearchResult)
+                            if (response.code === 0) {
+                                $.each(response.data, displaySearchResult)
+                            }
+
+                            if (response.code != 0) {
+                                console.log(response.data)
+                            }
                         }
-
-                        if (response.code != 0) {
-                            console.log(response.data)
-                        }
-                    }
-                });
+                    });
+                }
             }, searchDelay);
         });
 
         //on keydown, clear the countdown 
-        $('#search').on('keydown', function () {
+        $('#search').on('keydown', () => {
             clearTimeout(typingTimer);
         });
 
