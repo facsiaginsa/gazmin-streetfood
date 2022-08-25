@@ -607,6 +607,20 @@ body.fullscreen-enabled #fullscreenToggle {
     text-align: center;
 }
 
+.bottom-navigation>div:not(:last-child) {
+    border-right: solid 1px #aaa;
+}
+
+#nav-cart {
+    background: url(/img/nav-cart.svg) center center no-repeat;
+    background-size: 20px;
+}
+
+#nav-user {
+    background: url(/img/nav-user.svg) center center no-repeat;
+    background-size: 20px;
+}
+
 input {
     width: 100%;
     padding: 8px 12px;
