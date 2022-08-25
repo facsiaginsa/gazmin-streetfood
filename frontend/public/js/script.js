@@ -1,6 +1,6 @@
 'use strict';
 
-function callModal(content) {
+function callModal(content, params) {
     switch (content) {
         case 'login':
             $('#modal-container').addClass('auth');
@@ -21,6 +21,7 @@ function callModal(content) {
             $('#modal-container').removeClass('auth');
             $('#modal-container').removeClass('hidden');
             $('#modal-container').load('menu.html');
+            showMenu(params)
             break;
         case 'checkout':
             $('#modal-container').removeClass('auth');

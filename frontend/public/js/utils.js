@@ -89,7 +89,7 @@ $(document).ready(function() {
             // console.log(window.MARKETPLACE_URL + "/product?word=" + word)
 
             $.ajax({
-                url: window.MARKETPLACE_URL + "/product?" + word,
+                url: window.MARKETPLACE_URL + "/product?word=" + word,
                 type: "GET",
                 contentType: "application/json",
                 success: function(response) {
@@ -143,3 +143,7 @@ $(document).ready(function() {
         }
     }
 })
+
+function showMenu(params) {
+    console.log(params)
+}
