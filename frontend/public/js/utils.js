@@ -82,8 +82,13 @@ $(document).ready(() => {
         let searchDelay = 400; // in miliseconds
 
         //On keyup, start the countdown delay
-        $('#search').on('keyup', () => {
+        $('#search').on('change paste keyup', () => {
             clearTimeout(typingTimer);
+
+            if (!$('#search').val()) {
+                $('#search + .search-results').empty();
+            }
+
             typingTimer = setTimeout(() => {
                 let word = $('#search').val()
                 // console.log(window.MARKETPLACE_URL + '/product?word="' + word + '"')

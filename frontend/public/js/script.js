@@ -41,12 +41,6 @@ function callModal(content) {
     }
 };
 
-$('#search').on('change paste keyup', () => {
-    if (!$('#search').val()) {
-        $('#search + .search-results').empty();
-    }
-});
-
 $('#nav-cart').on('click', () => {
     callModal('checkout');
 });
