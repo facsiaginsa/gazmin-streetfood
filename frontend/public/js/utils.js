@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(() => {
 
     // Login Function
@@ -60,20 +62,7 @@ $(document).ready(() => {
     // Logout Function
     $('#logout-button').on('click', (e) => {
         e.preventDefault();
-
         sessionStorage.clear();
-    });
-
-    // Go to Login Page
-    $('#to-login').on('click', (e) => {
-        e.preventDefault();
-        $('#modal-container').load('login.html');
-    });
-
-    // Go to Register Page
-    $('#to-register').on('click', (e) => {
-        e.preventDefault();
-        $('#modal-container').load('register.html');
     });
 
     // Search function
