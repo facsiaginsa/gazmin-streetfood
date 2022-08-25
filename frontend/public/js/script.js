@@ -1,26 +1,38 @@
 'use strict';
 
 function callModal(content) {
+    function modalOpener(target, auth) {
+        if (auth) {
+            $('#modal-content').addClass('auth');
+        } else {
+            $('#modal-content').removeClass('auth');
+        }
+
+        $.ajax({
+            url: target,
+            type: "GET",
+            success: function (response) {
+                $('#modal-content').html(response);
+                $('#modal-container').removeClass('hidden');
+            }
+        });
+    }
+
     switch (content) {
         case 'login':
-            $('#modal-content').addClass('auth');
-            $('#modal-content').load('login.html');
-            $('#modal-container').removeClass('hidden');
+            modalOpener('login.html', true);
             break;
         case 'register':
-            $('#modal-content').addClass('auth');
-            $('#modal-content').load('register.html');
-            $('#modal-container').removeClass('hidden');
+            modalOpener('register.html', true);
             break;
         case 'menu':
-            $('#modal-content').removeClass('auth');
-            $('#modal-content').load('menu.html');
-            $('#modal-container').removeClass('hidden');
+            modalOpener('menu.html', false);
             break;
         case 'checkout':
-            $('#modal-content').removeClass('auth');
-            $('#modal-content').load('checkout.html');
-            $('#modal-container').removeClass('hidden');
+            modalOpener('checkout.html', false);
+            break;
+        case 'user':
+            modalOpener('user.html', false);
             break;
         default:
             $('#modal-content').removeClass('auth');
@@ -28,3 +40,11 @@ function callModal(content) {
             $('#modal-container').addClass('hidden');
     }
 };
+
+$('#nav-cart').on('click', () => {
+    callModal('checkout');
+});
+
+$('#nav-user').on('click', () => {
+    callModal('user');
+});
