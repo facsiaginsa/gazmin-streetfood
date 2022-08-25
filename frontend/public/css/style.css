@@ -524,6 +524,7 @@ body.fullscreen-enabled #fullscreenToggle {
 }
 
 .controlButtonsContainer {
+    display: none;
     position: absolute;
     justify-content: center;
     width: 100%;
@@ -536,17 +537,13 @@ body.fullscreen-enabled #fullscreenToggle {
     padding: 10px 15px 0;
     border-radius: 15px 15px 0 0;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
-    background-color: #fff;
+    background: linear-gradient(180deg, #fff, #ddd);
 }
 
 .viewControlButton {
     display: inline-block;
     line-height: 0;
     cursor: pointer;
-}
-
-.controlButtonsContainer {
-    display: none;
 }
 
 .viewControlButton .icon {
@@ -580,7 +577,6 @@ body.fullscreen-enabled #fullscreenToggle {
     padding: 15px 15px 0;
     background-color: #fff;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
-    border-radius: 0 0 15px 15px;
     z-index: 120;
 }
 
@@ -594,7 +590,7 @@ body.fullscreen-enabled #fullscreenToggle {
     left: 0;
     width: 100vw;
     height: 60px;
-    background-color: #fff;
+    background: linear-gradient(180deg, #ddd, #bbb);
     color: #212121;
     box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
     border-radius: 15px 15px 0 0;
@@ -606,6 +602,7 @@ body.fullscreen-enabled #fullscreenToggle {
     padding: 15px;
     text-align: center;
     cursor: pointer;
+    opacity: .75;
 }
 
 .bottom-navigation>div:not(:last-child) {
@@ -831,7 +828,7 @@ form a {
     cursor: pointer;
 }
 
-@media (min-width: 576px) {
+@media (min-width: 800px) {
     .controlButtonsContainer {
         display: flex;
     }
@@ -841,7 +838,23 @@ form a {
     }
 
     .bottom-navigation {
-        display: none;
+        gap: 10px;
+        justify-content: space-between;
+        inset: 0 auto auto 50vw;
+        transform: translateX(-50%);
+        width: 520px;
+        height: 70px;
+        padding: 0 5px;
+        background: linear-gradient(0deg, #fff, #ddd);
+        border-radius: 0 0 30px 30px;
+    }
+
+    .bottom-navigation>div {
+        display: inline-block;
+        width: 50px;
+        height: 50px;
+        flex: none;
+        border: none !important;
     }
 
     #modal-content {

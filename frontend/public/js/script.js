@@ -4,6 +4,9 @@ function callModal(content) {
     function modalOpener(target, auth) {
         if (auth) {
             $('#modal-content').addClass('auth');
+            $('#modal-container').on('click', () => {
+                callModal();
+            });
         } else {
             $('#modal-content').removeClass('auth');
         }
@@ -11,7 +14,7 @@ function callModal(content) {
         $.ajax({
             url: target,
             type: 'GET',
-            success: function (response) {
+            success: (response) => {
                 $('#modal-content').html(response);
                 $('#modal-container').removeClass('hidden');
             }
@@ -28,6 +31,9 @@ function callModal(content) {
         case 'menu':
             modalOpener('menu.html', false);
             break;
+        case 'cart':
+            modalOpener('cart.html', false);
+            break;
         case 'checkout':
             modalOpener('checkout.html', false);
             break;
@@ -38,11 +44,12 @@ function callModal(content) {
             $('#modal-content').removeClass('auth');
             $('#modal-content').val('');
             $('#modal-container').addClass('hidden');
+            $('#modal-container').unbind('click');
     }
 };
 
 $('#nav-cart').on('click', () => {
-    callModal('checkout');
+    callModal('register');
 });
 
 $('#nav-user').on('click', () => {
