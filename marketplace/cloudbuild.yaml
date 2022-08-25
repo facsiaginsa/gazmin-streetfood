@@ -1,17 +1,17 @@
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'build', '-t', 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0', 'marketplace/.' ]
+  args: [ 'build', '-t', 'asia-southeast1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0', 'marketplace/.' ]
 - name: 'gcr.io/cloud-builders/docker'
-  args: [ 'push', 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0' ]
+  args: [ 'push', 'asia-southeast1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0' ]
 - name: 'gcr.io/cloud-builders/gcloud'
   args:
   - 'run'
   - 'deploy'
   - 'marketplace'
   - '--image'
-  - 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'
+  - 'asia-southeast1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'
   - '--region'
-  - 'us-central1'
+  - 'asia-southeast1'
   - '--platform'
   - 'managed'
   - '--allow-unauthenticated'
@@ -30,4 +30,4 @@ availableSecrets:
   - versionName: projects/232587127321/secrets/marketplace-jwt-secret/versions/latest
     env: JWT_SECRET
 images:
-- 'us-central1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'
+- 'asia-southeast1-docker.pkg.dev/essential-tower-359509/gazmin-docker-repo/marketplace:1.0'
