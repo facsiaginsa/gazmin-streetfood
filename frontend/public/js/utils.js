@@ -68,7 +68,7 @@ $(document).ready(() => {
     // Search function
     {
         let typingTimer // timer object
-        let searchDelay = 400; // in miliseconds
+        let searchDelay = 250; // in miliseconds
 
         //On keyup, start the countdown delay
         $('#search').on('change paste keyup', () => {
