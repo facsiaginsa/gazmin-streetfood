@@ -1,6 +1,17 @@
 'use strict';
 
 $(document).ready(() => {
+    $('#nav-cart').on('click', () => {
+        callModal('register');
+    });
+    
+    $('#nav-user').on('click', () => {
+        callModal('user');
+    });
+
+    $('#close-modal').on('click', () => {
+        callModal();
+    });
 
     // Login Function
     $('#login-button').on('click', (e) => {
@@ -14,21 +25,7 @@ $(document).ready(() => {
                 username: $('#email').val(),
                 password: $('#password').val()
             }),
-            success: (response) => {
-                if (response.code === 0) {
-                    sessionStorage.setItem('name', response.userData.name)
-                    sessionStorage.setItem('token', response.userData.token)
-                    sessionStorage.setItem('address', response.userData.address)
-                    sessionStorage.setItem('email', response.userData.username)
-                    sessionStorage.setItem('id', response.userData.user_id)
-
-                    window.location.href = '/?message="' + response.message + '"'
-                }
-
-                if (response.code != 0) {
-                    // give message to user --> response.message
-                }
-            }
+            success: postLogin 
         });
     });
 
@@ -46,16 +43,7 @@ $(document).ready(() => {
                 name: $('#name').val(),
                 address: $('#address').val()
             }),
-            success: (response) => {
-                if (response.code === 0) {
-                    window.location.href = '/login?message="' + response.message + '"'
-                }
-
-                if (response.code != 0) {
-                    // give message to user --> response.message
-                    console.log(response)
-                }
-            }
+            success: postRegister
         });
     });
 
@@ -91,7 +79,12 @@ $(document).ready(() => {
                             $('#search + .search-results').empty();
 
                             if (response.code === 0) {
-                                $.each(response.data, displaySearchResult)
+                                if (response.count > 0) {
+                                    $.each(response.data, displaySearchResult)
+                                } else {
+                                    displayNoResult()
+                                }
+                                
                             }
 
                             if (response.code != 0) {
@@ -107,28 +100,5 @@ $(document).ready(() => {
         $('#search').on('keydown', () => {
             clearTimeout(typingTimer);
         });
-
-        //Add <li> dom for each search result
-        function displaySearchResult(index, product) {
-
-            $('#search + .search-results').append(
-                '<div><img src="' + product.photo + '" class="thumbnail"><div><span class="product-name">'
-                + product.name + '</span><span class="product-stall">' + product.stall.name + '</span></div><div class="next-arrow"></div></div>'
-            );
-
-            console.log('Showing ' + product.name)
-            /* 
-                available object:
-                product.name
-                product.description
-                product.id
-                product.stall
-                product.photo
-                product.rating
-                product.category
-                product.price
-                product.stock
-            */
-        }
     }
 })
