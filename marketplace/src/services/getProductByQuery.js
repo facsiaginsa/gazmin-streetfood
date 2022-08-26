@@ -1,7 +1,7 @@
 const { searchProductByQuery } = require("../models/product")
 const { searchAllStall } = require("../models/stall")
 const formatConvert = require("./formatConvert")
-const stallIdToObject = require("./stallIdToObject")
+const stallIdToObject = require("./stallIdtoObject")
 
 module.exports = async (word, price_range, categories) => {
     
