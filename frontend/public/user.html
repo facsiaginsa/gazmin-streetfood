@@ -1,15 +1,39 @@
 <div class="flex-container">
     <div class="modal-header">
-        <h2 id="merchant-name">User Informations</h2>
+        <h2 id="user-name">User Informations</h2>
         <button id="close-modal"></button>
     </div>
-    <div class="modal-content"></div>
+    <div class="modal-content">
+        <div id="user-info"></div>
+    </div>
 </div>
 
 <script>
-    'use strict';
-
-    $('#close-modal').on('click', () => {
+     $('#close-modal').on('click', () => {
         callModal();
+    });
+
+    if (sessionStorage.getItem("name")) {
+        $('#user-info').append(
+        '<div>' +
+            'name: ' + sessionStorage.getItem("name") +
+        '</div>' +
+        '<div>' +
+            'email: ' + sessionStorage.getItem("email") +
+        '</div>' +
+        '<div>' +
+            'address: ' + sessionStorage.getItem("address") +
+        '</div>'
+        );
+    } else {
+        $('#user-info').append(
+            '<div>' +
+            'Please <span id="to-login">Login</span>' +
+            '</div>'
+        )
+    }
+
+    $('#to-login').on('click', () => {
+        callModal('login');
     });
 </script>

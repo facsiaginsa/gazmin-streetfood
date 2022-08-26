@@ -1,25 +1,26 @@
 'use strict';
 
-function callModal(content) {
-    function modalOpener(target, auth) {
-        if (auth) {
-            $('#modal-content').addClass('auth');
-            $('#modal-container').on('click', () => {
-                callModal();
-            });
-        } else {
-            $('#modal-content').removeClass('auth');
-        }
-
-        $.ajax({
-            url: target,
-            type: 'GET',
-            success: (response) => {
-                $('#modal-content').html(response);
-                $('#modal-container').removeClass('hidden');
-            }
+function modalOpener(target, auth) {
+    if (auth) {
+        $('#modal-content').addClass('auth');
+        $('#modal-container').on('click', () => {
+            callModal();
         });
+    } else {
+        $('#modal-content').removeClass('auth');
     }
+
+    $.ajax({
+        url: target,
+        type: 'GET',
+        success: (response) => {
+            $('#modal-content').html(response);
+            $('#modal-container').removeClass('hidden');
+        }
+    });
+}
+
+function callModal(content) {
 
     switch (content) {
         case 'login':
@@ -91,6 +92,20 @@ function postLogin(response) {
     }
 }
 
+function showUserProfile() {
+    $('#user-info').append(
+        '<div>' +
+            'name: ' + sessionStorage.getItem("name") +
+        '</div>' +
+        '<div>' +
+            'email: ' + sessionStorage.getItem("email") +
+        '</div>' +
+        '<div>' +
+            'address: ' + sessionStorage.getItem("address") +
+        '</div>'
+    );
+}
+
 function postRegister(response) {
     if (response.code === 0) {
         window.location.href = '/login?message="' + response.message + '"'
@@ -101,3 +116,4 @@ function postRegister(response) {
         console.log(response)
     }
 }
+
