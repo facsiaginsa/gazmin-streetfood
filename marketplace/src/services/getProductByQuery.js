@@ -1,5 +1,7 @@
 const { searchProductByQuery } = require("../models/product")
+const { searchAllStall } = require("../models/stall")
 const formatConvert = require("./formatConvert")
+const stallIdToObject = require("./stallIdToObject")
 
 module.exports = async (word, price_range, categories) => {
     
@@ -32,8 +34,12 @@ module.exports = async (word, price_range, categories) => {
     // (@name:"potato" @price:[5000 9000]) => { $weight: 5.0; }|(@description:"potato" @price:[5000 9000]) => { $weight: 2.0; }
     // (@name:"potato" @price:[5000 9000] @category:{snack|salty}) => { $weight: 5.0; }|(@description:"potato" @price:[5000 9000] @category:{snack|salty}) => { $weight: 2.0; }
 
-    let result = await searchProductByQuery(final_query)
-    let formattedResult = await formatConvert(result)
+    let [result, stall] = await Promise.all([searchProductByQuery(final_query), searchAllStall()])
+    let [formattedResult, formattedStall] = await Promise.all([formatConvert(result), formatConvert(stall)])
+
+    if (formattedResult.count > 0) {
+        formattedResult.data.map(stallIdToObject, formattedStall)
+    }
 
     formattedResult.code = 0
     formattedResult.message = "Get Product by Query Success"

@@ -84,7 +84,7 @@ $(document).ready(() => {
 
                 if ($('#search').val()) {
                     $.ajax({
-                        url: window.MARKETPLACE_URL + '/product?"' + word + '"',
+                        url: window.MARKETPLACE_URL + '/product?word=' + word,
                         type: 'GET',
                         contentType: 'application/json',
                         success: (response) => {
@@ -113,7 +113,7 @@ $(document).ready(() => {
 
             $('#search + .search-results').append(
                 '<div><img src="' + product.photo + '" class="thumbnail"><div><span class="product-name">'
-                + product.name + '</span><span class="product-stall">' + product.stall + '</span></div><div class="next-arrow"></div></div>'
+                + product.name + '</span><span class="product-stall">' + product.stall.name + '</span></div><div class="next-arrow"></div></div>'
             );
 
             console.log('Showing ' + product.name)

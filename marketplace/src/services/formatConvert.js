@@ -23,9 +23,10 @@ module.exports = async (array) => {
                     if (j % 2 != 0) continue
 
                     // If can be parse to float, then provide float instead of string
-                    formattedData[currentIndex][array[i][j]] = parseFloat(array[i][j + 1]) ? 
-                                                                parseFloat(array[i][j + 1]) : 
-                                                                array[i][j + 1]
+                    //formattedData[currentIndex][array[i][j]] = parseFloat(array[i][j + 1]) ? 
+                    //                                            parseFloat(array[i][j + 1]) : 
+                    //                                            array[i][j + 1]
+                    formattedData[currentIndex][array[i][j]] = array[i][j + 1]
                 }
             }
         }

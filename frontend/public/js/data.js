@@ -1,4 +1,4 @@
-var MARKETPLACE_URL = "https://marketplace-u2rhstiutq-as.a.run.app";
+var MARKETPLACE_URL = "https://gazmin-marketpalce.facsiaginsa.com";
 var STREETVIEW_URL = "https://gazmin-streetview.facsiaginsa.com";
 var APP_DATA = {
     "scenes": [
