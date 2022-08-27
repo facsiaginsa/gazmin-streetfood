@@ -2,7 +2,7 @@
 
 $(document).ready(() => {
     $('#nav-cart').on('click', () => {
-        callModal('register');
+        callModal('cart');
     });
     
     $('#nav-user').on('click', () => {

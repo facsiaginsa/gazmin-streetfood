@@ -12,4 +12,39 @@
     $('#close-modal').on('click', () => {
         callModal();
     });
+
+    $.ajax({
+        url: window.MARKETPLACE_URL + '/cart',
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+        },
+        type: 'GET',
+        success: (response) => {
+            console.log(response)
+            if (response.code === 1) {
+                $('#modal-content').append(
+                    '<div> Cart is empty </div>'
+                )
+            } 
+
+            if (response.code === 0) {
+                $.each(response.cart.products, displayCart)
+            }
+        }
+    })
+
+    function displayCart(index, product) {
+        console.log(product)
+    $('#modal-content').append(
+        '<div>' +
+            'name: ' + product.name +
+        '</div>' +
+        '<div>' +
+            'description: ' + product.description +
+        '</div>' +
+        '<div>' +
+            'amount: ' + product.amount +
+        '</div>'
+    );
+}
 </script>

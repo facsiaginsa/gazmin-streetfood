@@ -12,7 +12,7 @@ const setCart = async (user_id, product_id, stall_id, amount) => {
     let payload = jsonStringifyCart({
         stall: stall_id,
         status: 0,
-        notes: " ",
+        notes: "",
         products: [{
             product_id,
             amount

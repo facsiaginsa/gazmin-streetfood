@@ -53,7 +53,7 @@ function callModal(content) {
 function displaySearchResult(index, product) {
 
     $('#search + .search-results').append(
-        '<div>' + 
+        `<div onclick="goToMenu('`+ product.id +`')">` + 
             '<img src="' + product.photo + '" class="thumbnail">' + 
             '<div>' +
                 '<span class="product-name">' + product.name + '</span>' +
@@ -117,3 +117,6 @@ function postRegister(response) {
     }
 }
 
+function goToMenu(productId) {
+    console.log(productId)
+}
