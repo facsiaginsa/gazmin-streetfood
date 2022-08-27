@@ -3,11 +3,85 @@
         <h2 id="merchant-name">Merchant Name</h2>
         <button id="close-modal"></button>
     </div>
-    <div class="modal-content"></div>
+    <div id="menu-content" class="modal-content"></div>
 </div>
 
 <script>
      $('#close-modal').on('click', () => {
         callModal();
     });
+
+function addProductToCart(productId, stallId) {
+    console.log("add product to cart")
+
+    let counter = sessionStorage.getItem("counter-" + productId) || 0
+
+    console.log("counter", counter)
+
+    if (counter > 0) {
+        $.ajax({
+            url: MARKETPLACE_URL + "/cart/incr/" + productId,
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("token")
+            },
+            type: 'PUT',
+            success: (response) => {
+                sessionStorage.setItem("counter-" + productId, parseInt(counter) + 1)
+            }
+        });
+        console.log("Product Increase 1")
+    }
+
+    if (counter == 0) {
+        $.ajax({
+            url: MARKETPLACE_URL + "/cart/add/" + productId,
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("token")
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                stall_id: stallId
+            }),
+            type: 'POST',
+            success: (response) => {
+                sessionStorage.setItem("counter-" + productId, 1)
+            }
+        });
+        console.log("Product Add to Cart")
+    }
+}
+
+function removeProductFromCart(productId) {
+    console.log("remove product from cart")
+
+    let counter = sessionStorage.getItem("counter-" + productId) || 0
+
+    if (counter > 1) {
+        $.ajax({
+            url: MARKETPLACE_URL + "/cart/decr/" + productId,
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("token")
+            },
+            type: 'PUT',
+            success: (response) => {
+                sessionStorage.setItem("counter-" + productId, parseInt(counter) - 1)
+            }
+        });
+        console.log("product decreased by 1")
+    }
+
+    if (counter <= 1) {
+        $.ajax({
+            url: MARKETPLACE_URL + "/cart/" + productId,
+            headers: {
+                "Authorization": "Bearer " + sessionStorage.getItem("token")
+            },
+            type: 'DELETE',
+            success: (response) => {
+                sessionStorage.setItem("counter-" + productId, 0)
+            }
+        });
+        console.log("product removed from cart")
+    }
+}
 </script>

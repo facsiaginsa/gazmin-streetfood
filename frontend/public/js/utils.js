@@ -1,6 +1,6 @@
 'use strict';
 
-function modalOpener(target, auth) {
+function modalOpener(target, auth, params) {
     if (auth) {
         $('#modal-content').addClass('auth');
         $('#modal-container').on('click', () => {
@@ -16,11 +16,15 @@ function modalOpener(target, auth) {
         success: (response) => {
             $('#modal-content').html(response);
             $('#modal-container').removeClass('hidden');
+
+            if (target === "menu.html") {
+                getStallMenu(params)
+            }
         }
     });
 }
 
-function callModal(content) {
+function callModal(content, params) {
 
     switch (content) {
         case 'login':
@@ -30,7 +34,7 @@ function callModal(content) {
             modalOpener('register.html', true);
             break;
         case 'menu':
-            modalOpener('menu.html', false);
+            modalOpener('menu.html', false, params);
             break;
         case 'cart':
             modalOpener('cart.html', false);
@@ -53,7 +57,7 @@ function callModal(content) {
 function displaySearchResult(index, product) {
 
     $('#search + .search-results').append(
-        `<div onclick="goToMenu('`+ product.id +`','` + product.stall.id + `')">` + 
+        `<div onclick="goToSceneByStallId('`+ product.stall.id + `')">` + 
             '<img src="' + product.photo + '" class="thumbnail">' + 
             '<div>' +
                 '<span class="product-name">' + product.name + '</span>' +
@@ -105,21 +109,66 @@ function postRegister(response) {
     }
 }
 
-function goToMenu(productId, stallId) {
+function goToSceneByStallId(stallId) {
     let sceneId
     let infohotspot
 
-    for (let element in APP_DATA.scenes ) {
-        let foundHotspot = APP_DATA.scenes[element].infoHotspots.find(function(hotspot) {
+    for (let element in data.scenes ) {
+        let foundHotspot = data.scenes[element].infoHotspots.find(function(hotspot) {
             return hotspot.stall.id == this
         }, stallId)
         
         if (foundHotspot) {
             infohotspot = foundHotspot
-            sceneId = APP_DATA.scenes[element].id.split("-")[0]
+            sceneId = data.scenes[element].id.split("-")[0]
         }
     }
 
     switchScene(scenes[sceneId], infohotspot.yaw)
     clearSearchResult()
+}
+
+function getStallMenu(id) {
+    $.ajax({
+        url: MARKETPLACE_URL + "/product/stall/" + id,
+        type: 'GET',
+        success: (response) => {
+            $.each(response.data, displayStallMenu)
+        }
+    });
+}
+
+function displayStallMenu(index, product) {
+
+    /* Available field:
+        product.name
+        product.description
+        product.amount
+        product.rating
+        product.id
+        product.photo
+        product.stock
+        product.price
+        product.category
+        product.photo
+        product.stall
+    */
+
+    $('#menu-content').append(
+        '<div id='+ product.id +'>' +
+            '<div>' +
+                'name: ' + product.name +
+            '</div>' +
+            '<div>' +
+                'description: ' + product.description +
+            '</div>' +
+            '<div>' +
+                'price: ' + product.price +
+            '</div>' +
+            '<div>' +
+                `<span onclick="addProductToCart('` + product.id + `', '`+ product.stall +`')"> <b>+</b> </span> /` +
+                `<span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+            '</div>' +
+        '</div>'
+    );
 }
