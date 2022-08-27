@@ -53,7 +53,7 @@ function callModal(content) {
 function displaySearchResult(index, product) {
 
     $('#search + .search-results').append(
-        `<div onclick="goToMenu('`+ product.id +`')">` + 
+        `<div onclick="goToMenu('`+ product.id +`','` + product.stall.id + `')">` + 
             '<img src="' + product.photo + '" class="thumbnail">' + 
             '<div>' +
                 '<span class="product-name">' + product.name + '</span>' +
@@ -62,6 +62,11 @@ function displaySearchResult(index, product) {
             '<div class="next-arrow"></div>' +
         '</div>'
     );
+}
+
+function clearSearchResult() {
+    $('#search + .search-results').empty()
+    $('#search').val("")
 }
 
 // Display No search Result
@@ -100,6 +105,21 @@ function postRegister(response) {
     }
 }
 
-function goToMenu(productId) {
-    console.log(productId)
+function goToMenu(productId, stallId) {
+    let sceneId
+    let infohotspot
+
+    for (let element in APP_DATA.scenes ) {
+        let foundHotspot = APP_DATA.scenes[element].infoHotspots.find(function(hotspot) {
+            return hotspot.stall.id == this
+        }, stallId)
+        
+        if (foundHotspot) {
+            infohotspot = foundHotspot
+            sceneId = APP_DATA.scenes[element].id.split("-")[0]
+        }
+    }
+
+    switchScene(scenes[sceneId], infohotspot.yaw)
+    clearSearchResult()
 }
