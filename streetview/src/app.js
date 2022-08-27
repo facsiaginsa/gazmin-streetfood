@@ -1,4 +1,5 @@
 // dependencies
+const userAuth = require("./middleware/authorization")
 const { port, host } = require("./config")
 const healthCheck = require("./controllers/healthCheck")
 const { getAppData, setAppData } = require("./controllers/streetview")
@@ -9,6 +10,6 @@ app.get("/health-check", healthCheck)
 
 // app config
 app.get("/app/data", getAppData)
-app.post("/app/data", setAppData)
+app.post("/app/data", { preValidation: userAuth }, setAppData)
 
 app.listen({port, host})

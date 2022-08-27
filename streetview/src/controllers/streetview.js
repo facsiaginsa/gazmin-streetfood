@@ -3,7 +3,7 @@ const setData = require("../services/setData")
 
 const setAppData = async (req,res) => {
     const { data } = req.body
-
+    
     let response = await setData(data)
 
     res.status(200).send(response)

@@ -8,5 +8,8 @@ module.exports = {
         port: process.env.REDIS_PORT,
         user: process.env.REDIS_USER,
         pass: process.env.REDIS_PASS,
+    },
+    jwtConfig: {
+        secret: process.env.JWT_SECRET
     }
 }
