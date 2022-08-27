@@ -13,22 +13,6 @@ $(document).ready(() => {
         callModal();
     });
 
-    // Login Function
-    $('#login-button').on('click', (e) => {
-        e.preventDefault();
-
-        $.ajax({
-            url: window.MARKETPLACE_URL + '/user/login',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                username: $('#email').val(),
-                password: $('#password').val()
-            }),
-            success: postLogin 
-        });
-    });
-
     // Register Function
     $('#register-button').on('click', (e) => {
         e.preventDefault();

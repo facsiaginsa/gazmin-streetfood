@@ -75,23 +75,6 @@ function displayNoResult() {
     );
 }
 
-// Post Login Function
-function postLogin(response) {
-    if (response.code === 0) {
-        sessionStorage.setItem('name', response.userData.name)
-        sessionStorage.setItem('token', response.userData.token)
-        sessionStorage.setItem('address', response.userData.address)
-        sessionStorage.setItem('email', response.userData.username)
-        sessionStorage.setItem('id', response.userData.user_id)
-
-        window.location.href = '/?message="' + response.message + '"'
-    }
-
-    if (response.code != 0) {
-        // give message to user --> response.message
-    }
-}
-
 function showUserProfile() {
     $('#user-info').append(
         '<div>' +
