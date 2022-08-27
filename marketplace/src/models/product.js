@@ -33,9 +33,18 @@ const selectProductById = async (id) => {
     }
 }
 
+const searchProductByStallId = async (id) => {
+    try {
+        return await app.redis.call("FT.SEARCH", db.schema.product, "@stall:" + id)
+    } catch (error) {
+        app.log.error(error)
+    }
+}
+
 module.exports = { 
     searchAllProduct, 
     searchProductByName,
     selectProductById,
-    searchProductByQuery
+    searchProductByQuery,
+    searchProductByStallId
 }

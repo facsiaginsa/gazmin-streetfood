@@ -2,6 +2,7 @@ const getAllProduct = require("../services/getAllProduct")
 const getProductById = require("../services/getProductById")
 const getProductByName = require("../services/getProductByName")
 const getProductByQuery = require("../services/getProductByQuery")
+const getProductByStallId = require("../services/getProductByStallId")
 
 const getProduct = async (req, res) => {
 
@@ -29,13 +30,22 @@ const getProductUsingProductId = async (req, res) => {
 
     const { id } = req.params
 
-    console.log(id)
     const response = await getProductById(id)
+
+    res.status(200).send(response)
+}
+
+const getMenu = async (req, res) => {
+
+    const { id } = req.params
+
+    const response = await getProductByStallId(id)
 
     res.status(200).send(response)
 }
 
 module.exports = {
     getProduct,
-    getProductUsingProductId
+    getProductUsingProductId,
+    getMenu
 }

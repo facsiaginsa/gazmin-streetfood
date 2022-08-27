@@ -4,7 +4,7 @@ const healthCheck = require("./controllers/healthCheck")
 const app = require("./loaders/fastify")
 const { userLogin, userRegister } = require("./controllers/user")
 const verifySchema = require("./services/verifySchema")
-const { getProduct, getProductUsingProductId } = require("./controllers/product")
+const { getProduct, getProductUsingProductId, getMenu } = require("./controllers/product")
 const userAuth = require("./middleware/authorization")
 const { getCart, addToCart, removeFromCart, editAmount, setNotes } = require("./controllers/cart")
 const { getStall, getStallUsingStallId } = require("./controllers/stall")
@@ -19,6 +19,7 @@ app.post("/user/register", userRegister)
 // Product
 app.get("/product", getProduct)
 app.get("/product/:id", getProductUsingProductId)
+app.get("/product/stall/:id", getMenu)
 
 // Stall
 app.get("/stall", getStall)
