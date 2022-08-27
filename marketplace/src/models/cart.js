@@ -33,8 +33,6 @@ const addItemInCart = async (user_id, product_id, amount) => {
         amount
     })
 
-    console.log(payload)
-
     return await app.redis.call(
         "JSON.ARRAPPEND", 
         "cart:" + user_id, 

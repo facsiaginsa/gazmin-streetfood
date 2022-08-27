@@ -21,7 +21,6 @@ module.exports = async (user_id, product_id) => {
     // modified products value
     let formattedProduct = await formatConvert(products)
 
-    console.log(formattedProduct)
     let modifiedProduct = cart.products.map(productIdToObject, formattedProduct)
     cart.products = modifiedProduct
 

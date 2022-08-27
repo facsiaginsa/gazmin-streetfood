@@ -45,5 +45,4 @@ module.exports = async (word, price_range, categories) => {
     formattedResult.message = "Get Product by Query Success"
 
     return formattedResult
-
 }

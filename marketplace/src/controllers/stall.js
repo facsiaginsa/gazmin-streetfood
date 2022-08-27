@@ -13,7 +13,6 @@ const getStallUsingStallId = async (req, res) => {
 
     const { id } = req.params
 
-    console.log(id)
     const response = await getStallById(id)
 
     res.status(200).send(response)
