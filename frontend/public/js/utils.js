@@ -78,7 +78,7 @@ function displayNoResult() {
     $('#search + .search-results').append(
         '<div>' + 
             '<div>' +
-                '<span class="product-stall">Sorry No Result for Your searfh</span>' +
+                '<span class="product-stall">Sorry, no result found.</span>' +
             '</div>' +
         '</div>'
     );
