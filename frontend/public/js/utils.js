@@ -18,6 +18,7 @@ function modalOpener(target, auth, params) {
             $('#modal-container').removeClass('hidden');
 
             if (target === "menu.html") {
+                getStallDetail(params)
                 getStallMenu(params)
             }
         }
@@ -128,12 +129,28 @@ function goToSceneByStallId(stallId) {
     clearSearchResult()
 }
 
+function getStallDetail(id) {
+    $.ajax({
+        url: MARKETPLACE_URL + "/stall/" + id,
+        type: 'GET',
+        success: (response) => {
+            displayStallDetail(response)
+        }
+    });
+}
+
 function getStallMenu(id) {
     $.ajax({
         url: MARKETPLACE_URL + "/product/stall/" + id,
         type: 'GET',
         success: (response) => {
-            $.each(response.data, displayStallMenu)
+            if (response.code === 0) {
+                $.each(response.data, displayStallMenu)
+            }
+            
+            if (response.code === 1) {
+                displayNoStallMenu(response.message)
+            }
         }
     });
 }
@@ -171,4 +188,17 @@ function displayStallMenu(index, product) {
             '</div>' +
         '</div>'
     );
+}
+
+function displayNoStallMenu(message) {
+    $('#menu-content').append(
+        '<div>' +
+            message +
+        '</div>'
+    )
+}
+
+function displayStallDetail(stall) {
+    console.log("set stall name")
+    $('#merchant-name').html(stall.name)
 }

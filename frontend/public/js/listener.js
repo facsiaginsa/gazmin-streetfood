@@ -85,4 +85,9 @@ $(document).ready(() => {
             clearTimeout(typingTimer);
         });
     }
+
+    $('.info-hotspot-header').on('click', () => {
+        let stallId = $('.info-hotspot-header').attr('id').replace("stall-", "")
+        callModal("menu", stallId)
+    })
 })
