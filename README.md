@@ -1,8 +1,10 @@
 # Gazmin Streetfood
 
-[Insert description of app]
+Gazmin Streetfood is a 3 Dimention Marketplace for Indonesian Streetfood. The user will feel the experience of visiting the place while shopping. Right now, this app *is not working well with safari browser*, please use other browser instead such as chrome.
 
-[Insert app screenshots](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#uploading-assets)
+![Gazmin Home Page](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin.png?raw=true)
+
+![Gazmin Search Streetfood](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-search.png?raw=true)
 
 # Overview video (Optional)
 
