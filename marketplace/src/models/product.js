@@ -34,8 +34,11 @@ const selectProductById = async (id) => {
 }
 
 const searchProductByStallId = async (id) => {
+
+    let stallId = id.replaceAll("-", "\\-")
+
     try {
-        return await app.redis.call("FT.SEARCH", db.schema.product, "@stall:" + id)
+        return await app.redis.call("FT.SEARCH", db.schema.product, "@stall:{" + stallId + "}")
     } catch (error) {
         app.log.error(error)
     }

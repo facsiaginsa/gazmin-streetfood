@@ -31,7 +31,7 @@ const createProductSchema = async () => {
         "photo", "TEXT", 
         "stock", "NUMERIC", 
         "rating", "NUMERIC", 
-        "stall", "TEXT", 
+        "stall", "TAG", 
         "category", "TAG"
     )
 }
