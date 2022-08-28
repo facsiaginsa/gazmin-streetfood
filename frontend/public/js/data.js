@@ -34,7 +34,7 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "1-scene"
                 }
@@ -79,13 +79,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "2-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "0-scene"
                 }
@@ -130,13 +130,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "3-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "1-scene"
                 }
@@ -181,13 +181,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "4-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "2-scene"
                 }
@@ -232,13 +232,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "5-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "3-scene"
                 }
@@ -283,13 +283,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "6-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "4-scene"
                 }
@@ -334,13 +334,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "7-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "5-scene"
                 }
@@ -385,13 +385,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "8-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "6-scene"
                 }
@@ -436,13 +436,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "9-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "7-scene"
                 }
@@ -487,13 +487,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "10-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "8-scene"
                 }
@@ -538,13 +538,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "11-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "9-scene"
                 }
@@ -589,13 +589,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "12-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "10-scene"
                 }
@@ -646,13 +646,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "13-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "11-scene"
                 }
@@ -697,13 +697,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "14-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "12-scene"
                 }
@@ -748,13 +748,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "15-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "13-scene"
                 }
@@ -811,13 +811,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "16-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "14-scene"
                 }
@@ -862,13 +862,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "17-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "15-scene"
                 }
@@ -913,13 +913,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "18-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "16-scene"
                 }
@@ -970,13 +970,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "19-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "17-scene"
                 }
@@ -1021,13 +1021,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "20-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "18-scene"
                 }
@@ -1072,13 +1072,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "21-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "19-scene"
                 }
@@ -1123,13 +1123,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "22-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "20-scene"
                 }
@@ -1174,13 +1174,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "23-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "21-scene"
                 }
@@ -1225,13 +1225,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "24-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "22-scene"
                 }
@@ -1276,13 +1276,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "25-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "23-scene"
                 }
@@ -1327,13 +1327,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "26-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "24-scene"
                 }
@@ -1378,13 +1378,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "27-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "25-scene"
                 }
@@ -1429,13 +1429,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "28-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "26-scene"
                 }
@@ -1480,13 +1480,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "29-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "27-scene"
                 }
@@ -1537,13 +1537,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "30-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "28-scene"
                 }
@@ -1588,13 +1588,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "31-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "29-scene"
                 }
@@ -1639,13 +1639,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "32-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "30-scene"
                 }
@@ -1690,13 +1690,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "33-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "31-scene"
                 }
@@ -1741,13 +1741,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "34-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "32-scene"
                 }
@@ -1792,13 +1792,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "35-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "33-scene"
                 }
@@ -1843,13 +1843,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "36-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "34-scene"
                 }
@@ -1894,13 +1894,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "37-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "35-scene"
                 }
@@ -1945,13 +1945,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "38-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "36-scene"
                 }
@@ -1996,13 +1996,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "39-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "37-scene"
                 }
@@ -2047,13 +2047,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "40-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "38-scene"
                 }
@@ -2098,13 +2098,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "41-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "39-scene"
                 }
@@ -2149,13 +2149,13 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": 0,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "42-scene"
                 },
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "40-scene"
                 }
@@ -2200,7 +2200,7 @@ var APP_DATA = {
             "linkHotspots": [
                 {
                     "yaw": -3.14,
-                    "pitch": 0,
+                    "pitch": 0.1,
                     "rotation": 0,
                     "target": "41-scene"
                 }
