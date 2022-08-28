@@ -25,10 +25,13 @@
                 $('#modal-content').append(
                     '<div> Cart is empty </div>'
                 )
-            } 
+            }
 
             if (response.code === 0) {
                 let products = response.cart.products
+
+                displayUserInformation();
+
                 $.each(products, displayCheckout)
                 let totalPrice = 0
                 
@@ -73,9 +76,22 @@
         );
     }
 
-function displayTotalPrice(totalPrice) {
-    $('#modal-content').append(
-        '<div>Total Price: Rp' + totalPrice + ' </div>'
-    )
-}
+    function displayTotalPrice(totalPrice) {
+        $('#modal-content').append(
+            '<hr>' +
+            '<div>Total Price: Rp' + totalPrice + ' </div>'
+        )
+    }
+
+    function displayUserInformation() {
+        $('#modal-content').append(
+            '<div>' +
+                'receiver: ' + sessionStorage.getItem("name") +
+            '</div>' +
+            '<div>' +
+                'address: ' + sessionStorage.getItem("address") +
+            '</div>' +
+            '<hr>'
+        )
+    }
 </script>
