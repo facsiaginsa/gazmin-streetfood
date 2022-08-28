@@ -74,7 +74,7 @@ var viewer = new Marzipano.Viewer(panoElement, viewerOpts);
 
 // Create scenes.
 var scenes = data.scenes.map(function (data) {
-    var urlPrefix = '/tiles';
+    var urlPrefix = MINIO_URL + '/tiles';
     var source = Marzipano.ImageUrlSource.fromString(
         urlPrefix + '/' + data.id + '/{z}/{f}/{y}/{x}.jpg',
         { cubeMapPreviewUrl: urlPrefix + '/' + data.id + '/preview.jpg' });
