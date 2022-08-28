@@ -210,6 +210,7 @@ function switchScene(scene, initialYaw) {
     scene.view.setParameters(initial);
     scene.scene.switchTo();
     currentScene = scene
+    console.log(scene.id)
     startAutorotate();
     // updateSceneName(scene);
     // updateSceneList(scene);
