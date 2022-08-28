@@ -8,8 +8,6 @@ module.exports = async (jsondata) => {
 
     jsondata.scenes.map(appendStallToAppData, stall)
 
-    console.log(jsondata)
-
     let data = await saveStreetviewData(jsondata)
 
     response.code = 0
