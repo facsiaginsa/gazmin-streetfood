@@ -185,7 +185,8 @@ function displayStallMenu(index, product) {
             '</div>' +
             '<div>' +
                 `<span onclick="addProductToCart('` + product.id + `', '`+ product.stall +`')"> <b>+</b> </span> /` +
-                `<span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+                ` <span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+                `/ <span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
             '</div>' +
         '</div>'
     );
