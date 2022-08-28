@@ -776,6 +776,7 @@ form a {
 
 .search-results:not(:empty) {
     width: 100%;
+    min-height: 0;
     max-height: calc(100vh - 160px);
     margin-bottom: 15px;
     color: #212121;
@@ -841,6 +842,76 @@ form a {
     background: url(../img/caretright.svg) center center no-repeat;
     background-size: contain;
     opacity: .5;
+}
+
+#menu-content {
+    width: 100%;
+    min-height: 0;
+    max-height: calc(100vh - 160px);
+    margin-bottom: 15px;
+    color: #212121;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.menu-product-list {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 15px 0 0;
+}
+
+.menu-product-list + .menu-product-list {
+    margin-top: 15px;
+    border-top: solid 1px #ddd;
+}
+
+.menu-product-list img {
+    width: 60px;
+    height: 60px;
+    background-color: #ddd;
+    border: solid 1px #aaa;
+}
+
+.menu-product-list .menu-product-name {
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.menu-product-list .menu-product-description {
+    font-size: 14px;
+    color: #888
+}
+
+.menu-product-list .menu-product-buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0 0;
+}
+
+.menu-product-list .menu-product-buy span {
+    flex: 1;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.menu-product-list .menu-product-cart .button {
+    display: inline-block;
+    margin: 0;
+    padding: 2px;
+    border-radius: 5px;
+    border: solid 1px #888;
+    cursor: pointer;
+}
+
+.menu-product-list .menu-product-cart span {
+    display: inline-block;
+    width: 35px;
+    text-align: center;
 }
 
 #close-modal {

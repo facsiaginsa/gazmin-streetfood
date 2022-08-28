@@ -173,21 +173,26 @@ function displayStallMenu(index, product) {
     */
 
     $('#menu-content').append(
-        '<div id=' + product.id + '>' +
-        '<div>' +
-        'name: ' + product.name +
-        '</div>' +
-        '<div>' +
-        'description: ' + product.description +
-        '</div>' +
-        '<div>' +
-        'price: ' + product.price +
-        '</div>' +
-        '<div>' +
-        `<span onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span> /` +
-        ` <span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
-        `/ <span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
-        '</div>' +
+        '<div class="menu-product-list">' +
+            '<img src=' + product.photo + '>' +
+            '<div>' +
+                '<div id=' + product.id + '>' +
+                    '<div class="menu-product-name">' +
+                        product.name +
+                    '</div>' +
+                    '<div class="menu-product-description">' +
+                        product.description +
+                    '</div>' +
+                    '<div class="menu-product-buy">' +
+                        '<span>Rp ' + product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + ',-</span>' +
+                        '<div class="menu-product-cart">' +
+                            `<span class="button" onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+                            `<span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+                            `<span class="button" onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span>` +
+                        '</div>' +
+                    '</div>' +
+                '</div>' +
+            '</div>' +
         '</div>'
     );
 }

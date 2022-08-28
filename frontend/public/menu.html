@@ -7,7 +7,7 @@
 </div>
 
 <script>
-     $('#close-modal').on('click', () => {
+    $('#close-modal').on('click', () => {
         callModal();
     });
 
@@ -22,7 +22,7 @@
                 $.each(response.cart.products, (index, product) => {
                     sessionStorage.setItem("counter-" + product.id, product.amount)
                 })
-            }   
+            }
         }
     });
 
@@ -40,7 +40,7 @@
                 },
                 type: 'PUT',
                 success: (response) => {
-                    let product = response.cart.products.find(function(product) {
+                    let product = response.cart.products.find(function (product) {
                         return product.id == this
                     }, productId)
                     sessionStorage.setItem("counter-" + productId, product.amount)
@@ -64,7 +64,7 @@
                 success: (response) => {
                     console.log("response", response)
 
-                    let product = response.cart.products.find(function(product) {
+                    let product = response.cart.products.find(function (product) {
                         return product.id == this
                     }, productId)
 
@@ -89,7 +89,7 @@
                 },
                 type: 'PUT',
                 success: (response) => {
-                    let product = response.cart.products.find(function(product) {
+                    let product = response.cart.products.find(function (product) {
                         return product.id == this
                     }, productId)
 
