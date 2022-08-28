@@ -17,8 +17,8 @@ function modalOpener(target, params) {
             $('#modal-content').html(response);
             $('#modal-container').removeClass('hidden');
 
-            if (target === "menu.html") {
-                console.log("call " + params)
+            if (target === 'menu.html') {
+                console.log('call ' + params)
                 getStallDetail(params)
                 getStallMenu(params)
             }
@@ -59,29 +59,29 @@ function callModal(content, params) {
 function displaySearchResult(index, product) {
 
     $('#search + .search-results').append(
-        `<div onclick="goToSceneByStallId('`+ product.stall.id + `')">` + 
-            '<img src="' + product.photo + '" class="thumbnail">' + 
-            '<div>' +
-                '<span class="product-name">' + product.name + '</span>' +
-                '<span class="product-stall">' + product.stall.name + '</span>' +
-            '</div>' +
-            '<div class="next-arrow"></div>' +
+        `<div onclick="goToSceneByStallId('` + product.stall.id + `')">` +
+        '<img src="' + product.photo + '" class="thumbnail">' +
+        '<div>' +
+        '<span class="product-name">' + product.name + '</span>' +
+        '<span class="product-stall">' + product.stall.name + '</span>' +
+        '</div>' +
+        '<div class="next-arrow"></div>' +
         '</div>'
     );
 }
 
 function clearSearchResult() {
     $('#search + .search-results').empty()
-    $('#search').val("")
+    $('#search').val('')
 }
 
 // Display No search Result
 function displayNoResult() {
     $('#search + .search-results').append(
-        '<div>' + 
-            '<div>' +
-                '<span class="product-stall">Sorry, no result found.</span>' +
-            '</div>' +
+        '<div>' +
+        '<div>' +
+        '<span class="product-stall">Sorry, no result found.</span>' +
+        '</div>' +
         '</div>'
     );
 }
@@ -89,13 +89,13 @@ function displayNoResult() {
 function showUserProfile() {
     $('#user-info').append(
         '<div>' +
-            'name: ' + sessionStorage.getItem("name") +
+        'name: ' + sessionStorage.getItem('name') +
         '</div>' +
         '<div>' +
-            'email: ' + sessionStorage.getItem("email") +
+        'email: ' + sessionStorage.getItem('email') +
         '</div>' +
         '<div>' +
-            'address: ' + sessionStorage.getItem("address") +
+        'address: ' + sessionStorage.getItem('address') +
         '</div>'
     );
 }
@@ -115,14 +115,14 @@ function goToSceneByStallId(stallId) {
     let sceneId
     let infohotspot
 
-    for (let element in data.scenes ) {
-        let foundHotspot = data.scenes[element].infoHotspots.find(function(hotspot) {
+    for (let element in data.scenes) {
+        let foundHotspot = data.scenes[element].infoHotspots.find(function (hotspot) {
             return hotspot.stall.id == this
         }, stallId)
-        
+
         if (foundHotspot) {
             infohotspot = foundHotspot
-            sceneId = data.scenes[element].id.split("-")[0]
+            sceneId = data.scenes[element].id.split('-')[0]
         }
     }
 
@@ -132,7 +132,7 @@ function goToSceneByStallId(stallId) {
 
 function getStallDetail(id) {
     $.ajax({
-        url: MARKETPLACE_URL + "/stall/" + id,
+        url: MARKETPLACE_URL + '/stall/' + id,
         type: 'GET',
         success: (response) => {
             displayStallDetail(response)
@@ -142,13 +142,13 @@ function getStallDetail(id) {
 
 function getStallMenu(id) {
     $.ajax({
-        url: MARKETPLACE_URL + "/product/stall/" + id,
+        url: MARKETPLACE_URL + '/product/stall/' + id,
         type: 'GET',
         success: (response) => {
             if (response.code === 0) {
                 $.each(response.data, displayStallMenu)
             }
-            
+
             if (response.code === 1) {
                 displayNoStallMenu(response.message)
             }
@@ -173,21 +173,21 @@ function displayStallMenu(index, product) {
     */
 
     $('#menu-content').append(
-        '<div id='+ product.id +'>' +
-            '<div>' +
-                'name: ' + product.name +
-            '</div>' +
-            '<div>' +
-                'description: ' + product.description +
-            '</div>' +
-            '<div>' +
-                'price: ' + product.price +
-            '</div>' +
-            '<div>' +
-                `<span onclick="addProductToCart('` + product.id + `', '`+ product.stall +`')"> <b>+</b> </span> /` +
-                ` <span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
-                `/ <span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
-            '</div>' +
+        '<div id=' + product.id + '>' +
+        '<div>' +
+        'name: ' + product.name +
+        '</div>' +
+        '<div>' +
+        'description: ' + product.description +
+        '</div>' +
+        '<div>' +
+        'price: ' + product.price +
+        '</div>' +
+        '<div>' +
+        `<span onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span> /` +
+        ` <span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+        `/ <span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+        '</div>' +
         '</div>'
     );
 }
@@ -195,12 +195,36 @@ function displayStallMenu(index, product) {
 function displayNoStallMenu(message) {
     $('#menu-content').append(
         '<div>' +
-            message +
+        message +
         '</div>'
     )
 }
 
 function displayStallDetail(stall) {
-    console.log("set stall name")
+    console.log('set stall name')
     $('#merchant-name').html(stall.name)
 }
+
+$('#search').on('input', () => {
+    if ($('#search').val() != '') {
+        $('#search-filters').removeClass('hidden');
+    } else {
+        $('#search-filters').addClass('hidden');
+    }
+});
+
+$('#minimum-price').on('change paste keyup', () => {
+    if ($('#minimum-price').val() >= 1) {
+        $('#maximum-price').attr('min', $('#minimum-price').val());
+    } else {
+        $('#maximum-price').attr('min', 0);
+    }
+});
+
+$('#maximum-price').on('change paste keyup', () => {
+    if ($('#maximum-price').val() >= 1) {
+        $('#minimum-price').attr('max', $('#maximum-price').val());
+    } else {
+        $('#minimum-price').removeAttr('max');
+    }
+});

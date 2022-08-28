@@ -753,6 +753,27 @@ form a {
     font-size: 18px;
 }
 
+#search-filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-bottom: 15px;
+}
+
+
+#search-filters.hidden {
+    display: none;
+}
+
+#search-filters input,
+#search-filters select {
+    flex: 1;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
 .search-results:not(:empty) {
     width: 100%;
     max-height: calc(100vh - 160px);
