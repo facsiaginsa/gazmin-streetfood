@@ -1,7 +1,7 @@
 'use strict';
 
-function modalOpener(target, auth, params) {
-    if (auth) {
+function modalOpener(target, params) {
+    if (target == 'login.html' || target == 'register.html') {
         $('#modal-content').addClass('auth');
         $('#modal-container').on('click', () => {
             callModal();
@@ -28,22 +28,22 @@ function callModal(content, params) {
 
     switch (content) {
         case 'login':
-            modalOpener('login.html', true);
+            modalOpener('login.html');
             break;
         case 'register':
-            modalOpener('register.html', true);
+            modalOpener('register.html');
             break;
         case 'menu':
-            modalOpener('menu.html', false, params);
+            modalOpener('menu.html', params);
             break;
         case 'cart':
-            modalOpener('cart.html', false);
+            modalOpener('cart.html');
             break;
         case 'checkout':
-            modalOpener('checkout.html', false);
+            modalOpener('checkout.html');
             break;
         case 'user':
-            modalOpener('user.html', false);
+            modalOpener('user.html');
             break;
         default:
             $('#modal-content').removeClass('auth');
