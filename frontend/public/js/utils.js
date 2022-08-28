@@ -18,6 +18,8 @@ function modalOpener(target, params) {
             $('#modal-container').removeClass('hidden');
 
             if (target === "menu.html") {
+                console.log("call " + params)
+                getStallDetail(params)
                 getStallMenu(params)
             }
         }
@@ -128,12 +130,28 @@ function goToSceneByStallId(stallId) {
     clearSearchResult()
 }
 
+function getStallDetail(id) {
+    $.ajax({
+        url: MARKETPLACE_URL + "/stall/" + id,
+        type: 'GET',
+        success: (response) => {
+            displayStallDetail(response)
+        }
+    });
+}
+
 function getStallMenu(id) {
     $.ajax({
         url: MARKETPLACE_URL + "/product/stall/" + id,
         type: 'GET',
         success: (response) => {
-            $.each(response.data, displayStallMenu)
+            if (response.code === 0) {
+                $.each(response.data, displayStallMenu)
+            }
+            
+            if (response.code === 1) {
+                displayNoStallMenu(response.message)
+            }
         }
     });
 }
@@ -167,8 +185,22 @@ function displayStallMenu(index, product) {
             '</div>' +
             '<div>' +
                 `<span onclick="addProductToCart('` + product.id + `', '`+ product.stall +`')"> <b>+</b> </span> /` +
-                `<span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+                ` <span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+                `/ <span onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
             '</div>' +
         '</div>'
     );
+}
+
+function displayNoStallMenu(message) {
+    $('#menu-content').append(
+        '<div>' +
+            message +
+        '</div>'
+    )
+}
+
+function displayStallDetail(stall) {
+    console.log("set stall name")
+    $('#merchant-name').html(stall.name)
 }

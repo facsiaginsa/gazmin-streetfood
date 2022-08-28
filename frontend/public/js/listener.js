@@ -85,4 +85,10 @@ $(document).ready(() => {
             clearTimeout(typingTimer);
         });
     }
+
+    $('[id^="stall-"]').on('click', function() {
+        let stallId = this.id.replace("stall-", "")
+        console.log("Clicked: " + stallId)
+        callModal("menu", stallId)
+    })
 })

@@ -318,6 +318,8 @@ function createInfoHotspotElement(hotspot) {
     // Create hotspot/tooltip header.
     var header = document.createElement('div');
     header.classList.add('info-hotspot-header');
+    console.log("set id for stall " + hotspot.stall.id );
+    header.setAttribute("id", "stall-" + hotspot.stall.id);
 
     // Create image element.
     var iconWrapper = document.createElement('div');
@@ -368,8 +370,12 @@ function createInfoHotspotElement(hotspot) {
         modal.classList.toggle('visible');
     };
 
+    // function openMenu(stallId) {
+    //     callModal("menu", stallId)
+    // }
+
     // Show content when hotspot is clicked.
-    wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
+    // wrapper.querySelector('.info-hotspot-header').addEventListener('click', toggle);
 
     // Hide content when close icon is clicked.
     modal.querySelector('.info-hotspot-close-wrapper').addEventListener('click', toggle);

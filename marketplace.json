@@ -1,0 +1,38 @@
+{
+    "app_name": "Gazmin Streetfood",
+    "description": "3 Dimention Marketplace for Indonesian Streetfood",
+    "hidden": false,
+    "rank": 21, 
+    "type": "Full App",
+    "contributed_by": "Community",
+    "repo_url": "https://github.com/facsiaginsa/gazmin-streetfood.git",
+    "download_url": "https://github.com/facsiaginsa/gazmin-streetfood/archive/main.zip",
+    "hosted_url": "", 
+    "quick_deploy": false, 
+    "deploy_buttons": [{
+        "Google": ""
+    }],
+    "language": ["JavaScript"],
+    "redis_commands": [
+        "JSON.SET", 
+        "JSON.GET", 
+        "JSON.ARRAPPEND", 
+        "JSON.NUMINCRBY", 
+        "JSON.DEL", 
+        "FT.CREATE", 
+        "FT.SEARCH",
+        "HGETALL",
+        "HMSET"
+    ],
+    "redis_features": ["Search"],
+    "redis_modules": ["RedisJSON", "RedisSearch"],
+    "app_image_urls": [
+        "https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin.png?raw=true",
+        "https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-search.png?raw=true",
+        "https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-architecture.png?raw=true"
+    ],
+    "youtube_url": "",
+    "special_tags": ["Hackaton"],
+    "verticals": ["Retail"], 
+    "markdown": "https://raw.githubusercontent.com/facsiaginsa/gazmin-streetfood/main/README.md"
+}
