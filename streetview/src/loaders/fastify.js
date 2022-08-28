@@ -1,4 +1,4 @@
-const { db, jwtConfig } = require('../config')
+const { db, jwtConfig, marketplaceURL } = require('../config')
 
 const app = require('fastify')({
     logger: true,
@@ -19,6 +19,10 @@ app.register(require('@fastify/redis'), {
     password: db.pass,
     port: db.port,
     enableReadyCheck: false
+})
+
+app.register(require('fastify-axios'), {
+    baseURL: marketplaceURL
 })
 
 module.exports = app
