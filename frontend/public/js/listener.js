@@ -86,8 +86,9 @@ $(document).ready(() => {
         });
     }
 
-    $('.info-hotspot-header').on('click', () => {
-        let stallId = $('.info-hotspot-header').attr('id').replace("stall-", "")
+    $('[id^="stall-"]').on('click', function() {
+        let stallId = this.id.replace("stall-", "")
+        console.log("Clicked: " + stallId)
         callModal("menu", stallId)
     })
 })

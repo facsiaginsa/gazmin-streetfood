@@ -18,6 +18,7 @@ function modalOpener(target, auth, params) {
             $('#modal-container').removeClass('hidden');
 
             if (target === "menu.html") {
+                console.log("call " + params)
                 getStallDetail(params)
                 getStallMenu(params)
             }
