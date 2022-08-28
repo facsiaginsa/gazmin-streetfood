@@ -86,6 +86,32 @@ const jsonStringifyStreetview = jsonStringify({
                                 },
                                 text: {
                                     type: "string"
+                                },
+                                stall: {
+                                    type: "object",
+                                    properties: {
+                                        id: {
+                                            type: "string"
+                                        },
+                                        name: {
+                                            type: "string"
+                                        },
+                                        description: {
+                                            type: "string"
+                                        },
+                                        yaw: {
+                                            type: "string"
+                                        },
+                                        pitch: {
+                                            type: "string"
+                                        },
+                                        scene_id: {
+                                            type: "string"
+                                        },
+                                        rating: {
+                                            type: "string"
+                                        }
+                                    }
                                 }
                             }
                         }

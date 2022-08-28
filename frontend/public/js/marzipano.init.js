@@ -15,11 +15,19 @@
  */
 'use strict';
 
-
 var Marzipano = window.Marzipano;
 var bowser = window.bowser;
 var screenfull = window.screenfull;
-var data = window.APP_DATA;
+var data
+
+$.ajax({
+    type: "GET",
+    url: STREETVIEW_URL + "/app/data",
+    async: false,
+    success: function(response) {
+        data = response.marzipano
+    }
+})
 
 var currentScene
 

@@ -11,5 +11,6 @@ module.exports = {
     },
     jwtConfig: {
         secret: process.env.JWT_SECRET
-    }
+    },
+    marketplaceURL: process.env.MARKETPLACE_URL
 }

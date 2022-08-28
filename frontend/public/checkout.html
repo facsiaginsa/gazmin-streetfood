@@ -12,4 +12,70 @@
     $('#close-modal').on('click', () => {
         callModal();
     });
+
+    $.ajax({
+        url: window.MARKETPLACE_URL + '/cart',
+        headers: {
+            'Authorization': 'Bearer ' + sessionStorage.getItem("token")
+        },
+        type: 'GET',
+        success: (response) => {
+            console.log(response)
+            if (response.code === 1) {
+                $('#modal-content').append(
+                    '<div> Cart is empty </div>'
+                )
+            } 
+
+            if (response.code === 0) {
+                let products = response.cart.products
+                $.each(products, displayCheckout)
+                let totalPrice = 0
+                
+                for (let i in products) {
+                    console.log(products[i])
+                    // console.log(parseInt(product.price), product.amount)
+
+                    totalPrice += parseInt(products[i].price) * products[i].amount
+                }
+
+                displayTotalPrice(totalPrice)
+            }
+        }
+    })
+
+    function displayCheckout(index, product) {
+        /* Available field:
+            product.name
+            product.description
+            product.amount
+            product.rating
+            product.id
+            product.photo
+            product.stock
+            product.price
+            product.category
+            product.photo
+        */
+        $('#modal-content').append(
+            '<div>' +
+                'name: ' + product.name +
+            '</div>' +
+            '<div>' +
+                'description: ' + product.description +
+            '</div>' +
+            '<div>' +
+                'amount: ' + product.amount +
+            '</div>' +
+            '<div>' +
+                'Sub total price: ' + product.amount * parseInt(product.price) +
+            '</div>'
+        );
+    }
+
+function displayTotalPrice(totalPrice) {
+    $('#modal-content').append(
+        '<div>Total Price: Rp' + totalPrice + ' </div>'
+    )
+}
 </script>
