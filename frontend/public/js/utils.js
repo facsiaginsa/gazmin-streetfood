@@ -169,16 +169,17 @@ function displayStallMenu(index, product) {
         '</div>' +
         '</div>' +
         '</div>' +
-        '</div>'
+        '</div>' +
+        '<button id="to-cart">Proceed to Cart</button>'
     );
+
+    $('#to-cart').on('click', () => {
+        callModal('cart');
+    });
 }
 
 function displayNoStallMenu(message) {
-    $('#menu-content').append(
-        '<div>' +
-        message +
-        '</div>'
-    )
+    $('#menu-content').append('<div>' + message + '</div>');
 }
 
 function displayStallDetail(stall) {

@@ -23,9 +23,9 @@
             console.log(response)
             if (response.code === 1) {
                 $('#modal-content').append(
-                    '<div> Cart is empty </div>'
+                    '<div>Cart is empty.</div>'
                 )
-            } 
+            }
 
             if (response.code === 0) {
                 $.each(response.cart.products, displayCart)
@@ -34,29 +34,53 @@
     })
 
     function displayCart(index, product) {
-    console.log(product)
-    /* Available field:
-        product.name
-        product.description
-        product.amount
-        product.rating
-        product.id
-        product.photo
-        product.stock
-        product.price
-        product.category
-        product.photo
-    */
-    $('#modal-content').append(
-        '<div>' +
-            'name: ' + product.name +
-        '</div>' +
-        '<div>' +
-            'description: ' + product.description +
-        '</div>' +
-        '<div>' +
-            'amount: ' + product.amount +
-        '</div>'
-    );
-}
+        console.log(product)
+        /* Available field:
+            product.name
+            product.description
+            product.amount
+            product.rating
+            product.id
+            product.photo
+            product.stock
+            product.price
+            product.category
+            product.photo
+        */
+
+        if (typeof product !== 'undefined') {
+            $('#modal-content').append(
+                '<div class="menu-product-list">' +
+                '<img src=' + product.photo + '>' +
+                '<div>' +
+                '<div id=' + product.id + '>' +
+                '<div class="menu-product-name">' +
+                product.name +
+                '</div>' +
+                '<div class="menu-product-description">' +
+                product.description +
+                '</div>' +
+                '<div class="menu-product-buy">' +
+                '<span>Rp ' + product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + ',-</span>' +
+                '<div class="menu-product-cart">' +
+                `<span class="button" onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+                `<span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+                `<span class="button" onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span>` +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '<button id="to-checkout">Proceed to Checkout</button>'
+            );
+        } else {
+            $('#modal-content').append(
+                '<div>No product in cart.</div>'
+            );
+        }
+
+        $('#to-checkout').on('click', () => {
+            callModal('checkout');
+        });
+    }
 </script>

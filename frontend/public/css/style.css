@@ -650,7 +650,7 @@ form input {
 }
 
 form button,
-#user-info button {
+.modal-content button {
     display: block;
     width: 100%;
     margin: 15px 0 0;
