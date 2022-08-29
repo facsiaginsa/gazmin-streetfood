@@ -6,6 +6,9 @@ function modalOpener(target, params) {
         $('body').on('click', '#modal-container', () => {
             callModal();
         });
+        $('body').on('click', '#modal-content', () => {
+            e.stopPropagation();
+        });
     } else {
         $('body').removeClass('auth');
     }
