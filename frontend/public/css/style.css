@@ -618,6 +618,12 @@ body.fullscreen-enabled #fullscreenToggle {
     border-right: solid 1px #aaa;
 }
 
+#login-form+span {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
+
 #nav-cart {
     background: url(/img/nav-cart.svg) center center no-repeat;
     background-size: 25px;
@@ -756,6 +762,26 @@ form a {
 
 .auth #modal-content {
     height: initial;
+}
+
+.error-msg {
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: #e42313;
+}
+
+.error-msg:not(:empty)::before {
+    content: 'Error : ';
+}
+
+.error-msg:empty {
+    display: none;
+}
+
+.outoforder button {
+    display: none;
 }
 
 .flex-container {
@@ -969,6 +995,10 @@ form a {
     display: inline-block;
     width: 35px;
     text-align: center;
+}
+
+#order-note {
+    margin: 15px 0 0;
 }
 
 #close-modal {

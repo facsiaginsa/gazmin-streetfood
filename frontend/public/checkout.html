@@ -44,7 +44,10 @@
 
                 displayTotalPrice(totalPrice)
 
-                $('#menu-content').append('<button>Make Payment</button>');
+                $('#menu-content').append(
+                    '<input type="text" name="order-note" id="order-note" placeholder="Additional notes...">' +
+                    '<button>Make Payment</button>'
+                );
             }
         }
     })

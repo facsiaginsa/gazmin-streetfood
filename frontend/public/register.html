@@ -1,6 +1,7 @@
 <div class="flex-container">
-    <form action="" method="post">
+    <form id="login-form">
         <h1>Register</h1>
+        <div class="error-msg"></div>
         <label for="email">E-Mail</label>
         <input type="email" name="email" id="email" required>
         <label for="name">Name</label>
@@ -15,6 +16,8 @@
 </div>
 
 <script>
+    $('.error-msg').text('');
+
     $('#to-login').on('click', () => {
         callModal('login');
     });
@@ -43,8 +46,9 @@
         }
 
         if (response.code != 0) {
-            // give message to user --> response.message
-            console.log(response)
+            if (response.code != 0) {
+                $('.error-msg').text(response.message);
+            }
         }
     }
 </script>
