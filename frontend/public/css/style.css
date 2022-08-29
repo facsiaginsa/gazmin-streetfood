@@ -901,7 +901,7 @@ form a {
     width: 100%;
     min-height: 0;
     max-height: calc(100vh - 160px);
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     color: #212121;
     overflow-x: hidden;
     overflow-y: auto;

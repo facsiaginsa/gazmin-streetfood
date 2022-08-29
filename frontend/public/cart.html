@@ -3,7 +3,7 @@
         <h2>Cart</h2>
         <button id="close-modal"></button>
     </div>
-    <div class="modal-content"></div>
+    <div id="menu-content" class="modal-content"></div>
 </div>
 
 <script>
@@ -28,7 +28,9 @@
             }
 
             if (response.code === 0) {
-                $.each(response.cart.products, displayCart)
+                $.each(response.cart.products, displayCart);
+
+                $('#menu-content').append('<button onclick="modalOpener(\'checkout\')">Proceed to Checkout</button>');
             }
         }
     })
@@ -49,7 +51,7 @@
         */
 
         if (typeof product !== 'undefined') {
-            $('#modal-content').append(
+            $('#menu-content').append(
                 '<div class="menu-product-list">' +
                 '<img src=' + product.photo + '>' +
                 '<div>' +
