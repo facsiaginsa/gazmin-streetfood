@@ -74,7 +74,7 @@ function displaySearchResult(index, product) {
 }
 
 function clearSearchResult() {
-    $('#search + .search-results').empty()
+    $('#search-results').empty();
     $('#search').val('')
 }
 
@@ -118,7 +118,6 @@ function goToSceneByStallId(stallId) {
     let sceneId
     let infohotspot
 
-    
     for (let element in data.scenes) {
         let foundHotspot = data.scenes[element].infoHotspots.find(function (hotspot) {
             return hotspot.stall.id == this

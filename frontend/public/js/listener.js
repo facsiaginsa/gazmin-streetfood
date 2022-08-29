@@ -43,7 +43,7 @@ $(document).ready(() => {
         let searchDelay = 250; // in miliseconds
 
         //On keyup, start the countdown delay
-        $('#search,#minimum-price,#maximum-price,#categories').on('change paste keyup', () => {
+        $('#search, #minimum-price, #maximum-price, #categories').on('change paste keyup', () => {
             clearTimeout(typingTimer);
 
             if (!$('#search').val()) {
@@ -84,7 +84,6 @@ $(document).ready(() => {
                                 } else {
                                     displayNoResult()
                                 }
-                                
                             }
 
                             if (response.code != 0) {
@@ -104,7 +103,6 @@ $(document).ready(() => {
 
     $('[id^="stall-"]').on('click', function() {
         let stallId = this.id.replace("stall-", "")
-        console.log("Clicked: " + stallId)
         callModal("menu", stallId)
     })
 })
