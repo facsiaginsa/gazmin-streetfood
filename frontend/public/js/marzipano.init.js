@@ -211,7 +211,7 @@ function switchScene(scene, initialYaw) {
     scene.scene.switchTo();
     currentScene = scene
     console.log(scene.data.id)
-    localStorage.setItem('lastOpenedScene', scene.data.id);
+    sessionStorage.setItem('lastOpenedScene', scene.data.id);
     startAutorotate();
     // updateSceneName(scene);
     // updateSceneList(scene);
@@ -419,7 +419,7 @@ function findSceneDataById(id) {
 
 (function () {
     // Display the initial scene.
-    let lastOpenedScene = localStorage.getItem('lastOpenedScene');
+    let lastOpenedScene = sessionStorage.getItem('lastOpenedScene');
 
     if (lastOpenedScene) {
         switchScene(scenes[lastOpenedScene.split("-")[0]]);
