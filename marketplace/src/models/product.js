@@ -3,7 +3,7 @@ const app = require("../loaders/fastify")
 
 const searchAllProduct = async () => {
     try {
-        return await app.redis.call("FT.SEARCH", db.schema.product, "*")
+        return await app.redis.call("FT.SEARCH", db.schema.product, "*", "LIMIT", "0", "100")
     } catch (error) {
         app.log.error(error)        
     }
