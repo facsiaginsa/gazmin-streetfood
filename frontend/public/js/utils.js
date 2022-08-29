@@ -2,12 +2,12 @@
 
 function modalOpener(target, params) {
     if (target == 'login.html' || target == 'register.html') {
-        $('#modal-content').addClass('auth');
-        $('#modal-container').on('click', () => {
+        $('body').addClass('auth');
+        $('body').on('click', "#modal-container", () => {
             callModal();
         });
     } else {
-        $('#modal-content').removeClass('auth');
+        $('body').removeClass('auth');
     }
 
     $.ajax({
@@ -27,31 +27,14 @@ function modalOpener(target, params) {
 }
 
 function callModal(content, params) {
-
-    switch (content) {
-        case 'login':
-            modalOpener('login.html');
-            break;
-        case 'register':
-            modalOpener('register.html');
-            break;
-        case 'menu':
-            modalOpener('menu.html', params);
-            break;
-        case 'cart':
-            modalOpener('cart.html');
-            break;
-        case 'checkout':
-            modalOpener('checkout.html');
-            break;
-        case 'user':
-            modalOpener('user.html');
-            break;
-        default:
-            $('#modal-content').removeClass('auth');
-            $('#modal-content').val('');
-            $('#modal-container').addClass('hidden');
-            $('#modal-container').unbind('click');
+    if (content) {
+        let target = content + '.html';
+        modalOpener(target, params)
+    } else {
+        $('#modal-content').removeClass('auth');
+        $('#modal-content').val('');
+        $('#modal-container').addClass('hidden');
+        $('#modal-container').unbind('click');
     }
 };
 
@@ -59,9 +42,9 @@ function callModal(content, params) {
 function displaySearchResult(index, product) {
 
     console.log("product", product)
-    
+
     //$('#search + .search-results').append(
-    $('#search-results').append(
+    $('#search + .search-results').append(
         `<div onclick="goToSceneByStallId('` + product.stall.id + `')">` +
         '<img src="' + product.photo + '" class="thumbnail">' +
         '<div>' +
@@ -74,7 +57,7 @@ function displaySearchResult(index, product) {
 }
 
 function clearSearchResult() {
-    $('#search-results').empty();
+    $('#search + .search-results').empty();
     $('#search').val('')
 }
 
@@ -166,25 +149,25 @@ function displayStallMenu(index, product) {
 
     $('#menu-content').append(
         '<div class="menu-product-list">' +
-            '<img src=' + product.photo + '>' +
-            '<div>' +
-                '<div id=' + product.id + '>' +
-                    '<div class="menu-product-name">' +
-                        product.name +
-                    '</div>' +
-                    '<div class="menu-product-description">' +
-                        product.description +
-                    '</div>' +
-                    '<div class="menu-product-buy">' +
-                        '<span>Rp ' + product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + ',-</span>' +
-                        '<div class="menu-product-cart">' +
-                            `<span class="button" onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
-                            `<span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
-                            `<span class="button" onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span>` +
-                        '</div>' +
-                    '</div>' +
-                '</div>' +
-            '</div>' +
+        '<img src=' + product.photo + '>' +
+        '<div>' +
+        '<div id=' + product.id + '>' +
+        '<div class="menu-product-name">' +
+        product.name +
+        '</div>' +
+        '<div class="menu-product-description">' +
+        product.description +
+        '</div>' +
+        '<div class="menu-product-buy">' +
+        '<span>Rp ' + product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + ',-</span>' +
+        '<div class="menu-product-cart">' +
+        `<span class="button" onclick="removeProductFromCart('` + product.id + `')"> <b>-</b> </span>` +
+        `<span id="counter-` + product.id + `">` + (sessionStorage.getItem("counter-" + product.id) ?? 0) + `</span> ` +
+        `<span class="button" onclick="addProductToCart('` + product.id + `', '` + product.stall + `')"> <b>+</b> </span>` +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
         '</div>'
     );
 }

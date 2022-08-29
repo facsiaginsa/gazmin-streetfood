@@ -24,7 +24,7 @@ Here's a short video that explains the project and how it uses Redis:
 
 [Insert your own video here, and remove the one below]
 
-[![Embed your YouTube video](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-streetfood-tumbnail.png?raw=true)](https://www.youtube.com/watch?v=vyxdC1qK4NE)
+[![Embed your YouTube video](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-streetfood-thumbnail.png?raw=true)](https://www.youtube.com/watch?v=vyxdC1qK4NE)
 
 ## How it works
 
