@@ -702,7 +702,7 @@ form a {
     z-index: 150;
 }
 
-#modal-content.auth {
+.auth #modal-content {
     height: initial;
 }
 
@@ -958,7 +958,7 @@ form a {
         max-height: calc(100vh - 180px);
     }
 
-    #modal-content.auth {
+    .auth #modal-content {
         max-width: 350px;
     }
 
