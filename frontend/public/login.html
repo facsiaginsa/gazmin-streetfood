@@ -1,6 +1,7 @@
 <div class="flex-container">
     <form id="login-form">
         <h1>Login</h1>
+        <div class="error-msg"></div>
         <label for="email">E-Mail</label>
         <input type="email" name="email" id="email" required>
         <label for="password">Password</label>
@@ -11,6 +12,8 @@
 </div>
 
 <script>
+    $('.error-msg').text('');
+
     $('#to-register').on('click', () => {
         callModal('register');
     });
@@ -27,7 +30,7 @@
                 username: $('#email').val(),
                 password: $('#password').val()
             }),
-            success: postLogin 
+            success: postLogin
         });
     });
 
@@ -44,7 +47,7 @@
         }
 
         if (response.code != 0) {
-            // give message to user --> response.message
+            $('.error-msg').text(response.message);
         }
     }
 </script>

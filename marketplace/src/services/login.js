@@ -7,7 +7,7 @@ module.exports = async (username, password) => {
     if (user[0] === 0) {
         return {
             code: 2,
-            message: "Your username is not available"
+            message: "Wrong e-mail/password!"
         }
     }
 
@@ -16,7 +16,7 @@ module.exports = async (username, password) => {
     if (!isCorrect) {
         return {
             code: 1,
-            message: "Your username/password is not match"
+            message: "Wrong e-mail/password!"
         }
     }
 
@@ -35,7 +35,7 @@ module.exports = async (username, password) => {
 
     return {
         code: 0,
-        message: "login success",
+        message: "Login success!",
         userData
     }
 }

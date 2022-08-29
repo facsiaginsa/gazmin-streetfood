@@ -618,6 +618,12 @@ body.fullscreen-enabled #fullscreenToggle {
     border-right: solid 1px #aaa;
 }
 
+#login-form+span {
+    display: block;
+    margin-top: 15px;
+    text-align: center;
+}
+
 #nav-cart {
     background: url(/img/nav-cart.svg) center center no-repeat;
     background-size: 25px;
@@ -756,6 +762,19 @@ form a {
 
 .auth #modal-content {
     height: initial;
+}
+
+.error-msg {
+    margin-bottom: 10px;
+    color: #e42313;
+}
+
+.error-msg:not(:empty)::before {
+    content: 'Error : ';
+}
+
+.error-msg:empty {
+    display: none;
 }
 
 .flex-container {
