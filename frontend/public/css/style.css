@@ -40,6 +40,14 @@ a:visited {
     text-decoration: none;
 }
 
+hr {
+    border: none;
+    width: 100%;
+    height: 1px;
+    margin: 15px 0;
+    background: #ddd;
+}
+
 #pano {
     position: absolute;
     top: 0;
@@ -612,12 +620,17 @@ body.fullscreen-enabled #fullscreenToggle {
 
 #nav-cart {
     background: url(/img/nav-cart.svg) center center no-repeat;
-    background-size: 20px;
+    background-size: 25px;
 }
 
-#nav-user {
+#nav-user.loggedout {
+    background: url(/img/nav-login.svg) center center no-repeat;
+    background-size: 25px;
+}
+
+#nav-user.loggedin {
     background: url(/img/nav-user.svg) center center no-repeat;
-    background-size: 20px;
+    background-size: 25px;
 }
 
 input {
@@ -650,13 +663,57 @@ form input {
 }
 
 form button,
-#user-info button {
+.modal-content button {
     display: block;
     width: 100%;
-    margin: 10px 0;
+    margin: 15px 0 0;
     border-radius: 10px;
     border: solid 1px #888;
     cursor: pointer;
+}
+
+#user-info>div,
+#modal-content .recipient-info>div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+#user-info>div span:first-child,
+#modal-content .recipient-info>div span:first-child {
+    width: 80px;
+}
+
+#user-info>div span:first-child::after,
+#modal-content .recipient-info>div span:first-child::after {
+    content: ":";
+    display: block;
+    float: right;
+}
+
+#user-info>div span:last-child,
+#modal-content .recipient-info>div span:last-child {
+    flex: 1;
+    text-align: left;
+}
+
+.total-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.total-price span:last-child {
+    flex: 1;
+    text-align: right;
+
+}
+
+.text-right {
+    text-align: right;
 }
 
 form p {
@@ -844,7 +901,7 @@ form a {
     width: 100%;
     min-height: 0;
     max-height: calc(100vh - 160px);
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     color: #212121;
     overflow-x: hidden;
     overflow-y: auto;
@@ -868,6 +925,10 @@ form a {
     height: 60px;
     background-color: #ddd;
     border: solid 1px #aaa;
+}
+
+.menu-product-list>div {
+    width: 100%;
 }
 
 .menu-product-list .menu-product-name {
@@ -913,6 +974,7 @@ form a {
 #close-modal {
     width: 25px;
     height: 25px;
+    margin: 0;
     background: url(../img/closemodal.svg) center center no-repeat;
     background-size: contain;
     border: none;

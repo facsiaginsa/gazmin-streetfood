@@ -6,7 +6,7 @@ function modalOpener(target, params) {
         $('body').on('click', '#modal-container', () => {
             callModal();
         });
-        $('body').on('click', '#modal-content', () => {
+        $('body').on('click', '#modal-content', (e) => {
             e.stopPropagation();
         });
     } else {
@@ -174,11 +174,7 @@ function displayStallMenu(index, product) {
 }
 
 function displayNoStallMenu(message) {
-    $('#menu-content').append(
-        '<div>' +
-        message +
-        '</div>'
-    )
+    $('#menu-content').append('<div>' + message + '</div>');
 }
 
 function displayStallDetail(stall) {
@@ -209,3 +205,9 @@ $('#maximum-price').on('change paste keyup', () => {
         $('#minimum-price').removeAttr('max');
     }
 });
+
+if (sessionStorage.getItem("name")) {
+    $('#nav-user').addClass('loggedin');
+} else {
+    $('#nav-user').addClass('loggedout');
+}

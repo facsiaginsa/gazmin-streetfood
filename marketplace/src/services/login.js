@@ -29,6 +29,9 @@ module.exports = async (username, password) => {
 
     let token = app.jwt.sign(userData)
     userData.token = token
+    
+    $('#nav-user').removeClass('loggedout');
+    $('#nav-user').addClass('loggedin');
 
     return {
         code: 0,

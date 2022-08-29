@@ -22,6 +22,8 @@
                 $.each(response.cart.products, (index, product) => {
                     sessionStorage.setItem("counter-" + product.id, product.amount)
                 })
+
+                $('#menu-content').append('<button onclick="modalOpener(\'checkout\')">Proceed to Checkout</button>');
             }
         }
     });
