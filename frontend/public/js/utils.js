@@ -174,6 +174,7 @@ function displayStallMenu(index, product) {
 }
 
 function displayNoStallMenu(message) {
+    $('#menu-content').addClass('outoforder');
     $('#menu-content').append('<div>' + message + '</div>');
 }
 

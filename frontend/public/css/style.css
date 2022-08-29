@@ -780,6 +780,10 @@ form a {
     display: none;
 }
 
+.outoforder button {
+    display: none;
+}
+
 .flex-container {
     display: flex;
     flex-wrap: wrap;
