@@ -146,7 +146,7 @@ This App need 2 redis stack, 1 for marketplace and 1 for streetview.
         ````
     - Query All Stall
         ````
-        FT.SEARCH stall_idx *
+        FT.SEARCH stall_idx * LIMIT 0 100
         ````
     - Get Cart
         ````
@@ -197,27 +197,79 @@ http://localhost:8080
 
 Note: This setup will only deploy the frontend and use the backend on our cloud (GCP)
 
-#### Local installation (Frontend & Backend)
+### Local installation (Backend & Frontend)
 
-Clone our repository
-```
-git clone https://github.com/facsiaginsa/gazmin-streetfood.git
-```
+1. marketplace
+    Clone our repository
+    ```
+    git clone https://github.com/facsiaginsa/gazmin-streetfood.git
+    ```
 
-Go to `marketplace` folder
-```
-cd gazmin-streetfood/marketpalce
-```
+    Go to `marketplace` folder
+    ```
+    cd gazmin-streetfood/marketplace
+    ```
 
-Create `env`
+    Create `.env` from ``env.example``.
+    ```
+    cp env.example .env
+    ```
 
-Build the image
-```
-docker build -t marketplace .
-```
+    Build the image
+    ```
+    docker build -t marketplace .
+    ```
 
+    Run the image
+    ```
+    docker run -p 3000:3000 --env-file .env -d marketplace
+    ```
 
-### Local installation (All System)
+2. streetview
+    Go to `streetview` folder
+    ```
+    cd gazmin-streetfood/streetview
+    ```
+
+    Create `.env` from ``env.example``.
+    ```
+    cp env.example .env
+    ```
+
+    Build the image
+    ```
+    docker build -t streetview .
+    ```
+
+    Run the image
+    ```
+    docker run -p 4000:4000 --env-file .env -d streetview
+    ```
+
+3. frontend
+    Go to `frontend` folder
+    ```
+    cd gazmin-streetfood/frontend
+    ```
+
+    Modif the ``frontend/public/js/data.js`` file, change the value to this:
+    ```
+    var MARKETPLACE_URL = "http://localhost:3000";
+    var STREETVIEW_URL = "http://localhost:4000";
+    var MINIO_URL = "https://gazmin-minio.facsiaginsa.com";
+    ```
+
+    Build the image
+    ```
+    docker build -t gazmin .
+    ```
+
+    Run the Docker image
+    ```
+    docker run -p 8080:8080 -e PORT=8080 -d gazmin
+    ```
+
+Now you can access the App from ``http://localhost:8080``
 
 ## Deployment
 
@@ -229,7 +281,7 @@ To make deploys work, you need to create free account on [Redis Cloud](https://r
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=frontend)
 
-By default, the frontend will user this UR:
+By default, the frontend will user this URL:
 - "https://gazmin-marketplace.facsiaginsa.com" as marketplace backend URL
 - "https://gazmin-streetview.facsiaginsa.com" as streetview backend URL
 - "https://gazmin-minio.facsiaginsa.com" as minio URL
