@@ -202,20 +202,39 @@ To make deploys work, you need to create free account on [Redis Cloud](https://r
 
 ### Google Cloud Run
 
-Deploy Frontend
+#### Deploy Frontend:
+
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=frontend)
 
-Deploy Marketplace
+By default, the frontend will user this UR:
+- "https://gazmin-marketplace.facsiaginsa.com" as marketplace backend URL
+- "https://gazmin-streetview.facsiaginsa.com" as streetview backend URL
+- "https://gazmin-minio.facsiaginsa.com" as minio URL
+
+if you want to change them, fork this repo and then make change on ``frontend/public/js/data.js``. 
+
+#### Deploy Marketplace:
+
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=marketplace)
 
-After successfully deployed, create some ``env`` on your cloud run instance. read ``marketplace/env.example`` for required env.
+You will get an error like this
+```
+[ ✖ ] Failed deploying the application to Cloud Run.
+Error: reason=HealthCheckContainerError message=The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable. Logs for this revision might contain more information.
+```
 
-Deploy Streetview
+That's ok, go to your cloud run console, click on the marketplace instance, create some ``env`` on your cloud run instance. Read ``marketplace/env.example`` for the required env. After that, redeploy the instance.
+
+#### Deploy Streetview
+
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=streetview)
 
-After successfully deployed, create some ``env`` on your cloud run instance. read ``streetview/env.example`` for required env.
+You will get an error like this
+```
+[ ✖ ] Failed deploying the application to Cloud Run.
+Error: reason=HealthCheckContainerError message=The user-provided container failed to start and listen on the port defined provided by the PORT=8080 environment variable. Logs for this revision might contain more information.
+```
 
-[Insert Run on Google button](https://cloud.google.com/blog/products/serverless/introducing-cloud-run-button-click-to-deploy-your-git-repos-to-google-cloud)
+That's ok, go to your cloud run console, click on the marketplace instance, create some ``env`` on your cloud run instance. Read ``streetview/env.example`` for the required env. After that, redeploy the instance.
 
-Note that you must provide **REDIS & MINIO** beside Google Cloud Run to make this app works.
-
+Note that you must also provide **REDIS & MINIO** beside Google Cloud Run to make this app works.
