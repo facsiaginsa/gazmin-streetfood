@@ -9,23 +9,23 @@
 </div>
 
 <script>
-     $('#close-modal').on('click', () => {
+    $('#close-modal').on('click', () => {
         callModal();
     });
 
     if (sessionStorage.getItem("name")) {
         $('#user-info').append(
             '<div>' +
-                '<span>Name</span><span>' + sessionStorage.getItem("name") + '</span>' +
+            '<span>Name</span><span>' + sessionStorage.getItem("name") + '</span>' +
             '</div>' +
             '<div>' +
-                '<span>E-Mail</span><span>' + sessionStorage.getItem("email") + '</span>' +
+            '<span>E-Mail</span><span>' + sessionStorage.getItem("email") + '</span>' +
             '</div>' +
             '<div>' +
-                '<span>Address</span><span>' + sessionStorage.getItem("address") + '</span>' +
+            '<span>Address</span><span>' + sessionStorage.getItem("address") + '</span>' +
             '</div>' +
             '<div>' +
-                '<button id="logout-button">Sign Out</button>' +
+            '<button id="logout-button">Sign Out</button>' +
             '</div>'
         );
     } else {
@@ -41,8 +41,10 @@
     // Logout Function
     $('#logout-button').on('click', (e) => {
         e.preventDefault();
-        sessionStorage.clear();
 
+        sessionStorage.clear();
+        $('#nav-user').removeClass('loggedin');
+        $('#nav-user').addClass('loggedout');
         window.location.href = '/'
     });
 </script>

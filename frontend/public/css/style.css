@@ -620,12 +620,17 @@ body.fullscreen-enabled #fullscreenToggle {
 
 #nav-cart {
     background: url(/img/nav-cart.svg) center center no-repeat;
-    background-size: 20px;
+    background-size: 25px;
 }
 
-#nav-user {
+#nav-user.loggedout {
+    background: url(/img/nav-login.svg) center center no-repeat;
+    background-size: 25px;
+}
+
+#nav-user.loggedin {
     background: url(/img/nav-user.svg) center center no-repeat;
-    background-size: 20px;
+    background-size: 25px;
 }
 
 input {

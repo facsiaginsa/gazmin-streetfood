@@ -205,3 +205,9 @@ $('#maximum-price').on('change paste keyup', () => {
         $('#minimum-price').removeAttr('max');
     }
 });
+
+if (sessionStorage.getItem("name")) {
+    $('#nav-user').addClass('loggedin');
+} else {
+    $('#nav-user').addClass('loggedout');
+}
