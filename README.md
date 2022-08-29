@@ -8,9 +8,7 @@ We also provide live search bar, if you click the search result, than you will g
 
 ![Gazmin Search Streetfood](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-search.png?raw=true)
 
-You can click the stall icon, and see what product they offer
-
-
+You can click the stall icon, and see what product they offer.
 
 This is the Application Architecture:
 
@@ -26,7 +24,7 @@ Here's a short video that explains the project and how it uses Redis:
 
 [Insert your own video here, and remove the one below]
 
-[![Embed your YouTube video](https://i.ytimg.com/vi/vyxdC1qK4NE/maxresdefault.jpg)](https://www.youtube.com/watch?v=vyxdC1qK4NE)
+[![Embed your YouTube video](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-streetfood-tumbnail.png?raw=true)](https://www.youtube.com/watch?v=vyxdC1qK4NE)
 
 ## How it works
 
@@ -192,7 +190,32 @@ Run the Docker image
 docker run -p 8080:8080 -e PORT=8080 -d gazmin
 ```
 
+Now, open your browser (do not use SAFARI) and open:
+```
+http://localhost:8080
+```
+
 Note: This setup will only deploy the frontend and use the backend on our cloud (GCP)
+
+#### Local installation (Frontend & Backend)
+
+Clone our repository
+```
+git clone https://github.com/facsiaginsa/gazmin-streetfood.git
+```
+
+Go to `marketplace` folder
+```
+cd gazmin-streetfood/marketpalce
+```
+
+Create `env`
+
+Build the image
+```
+docker build -t marketplace .
+```
+
 
 ### Local installation (All System)
 
