@@ -2,7 +2,15 @@
 
 $(document).ready(() => {
     $('#nav-cart').on('click', () => {
-        callModal('cart');
+
+        if (!sessionStorage.getItem("name")) {
+            callModal("user")
+        }
+
+        if (sessionStorage.getItem("name")) {
+            callModal('cart');
+        }
+        
     });
     
     $('#nav-user').on('click', () => {
@@ -102,7 +110,14 @@ $(document).ready(() => {
     }
 
     $('[id^="stall-"]').on('click', function() {
-        let stallId = this.id.replace("stall-", "")
-        callModal("menu", stallId)
+
+        if (sessionStorage.getItem("name")) {
+            let stallId = this.id.replace("stall-", "")
+            callModal("menu", stallId)
+        }
+
+        if (!sessionStorage.getItem("name")) {
+            callModal("user")
+        }
     })
 })
