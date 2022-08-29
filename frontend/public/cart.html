@@ -30,7 +30,11 @@
             if (response.code === 0) {
                 $.each(response.cart.products, displayCart);
 
-                $('#menu-content').append('<button onclick="modalOpener(\'checkout\')">Proceed to Checkout</button>');
+                if ($('#menu-content').html() != '') {
+                    $('#menu-content').append('<button onclick="modalOpener(\'checkout\')">Proceed to Checkout</button>');
+                } else {
+                    $('#menu-content').append('Nothing in your chart. Let\'s wander around some stalls!')
+                }
             }
         }
     })
