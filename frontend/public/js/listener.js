@@ -21,24 +21,6 @@ $(document).ready(() => {
         callModal();
     });
 
-    // Register Function
-    $('#register-button').on('click', (e) => {
-        e.preventDefault();
-
-        $.ajax({
-            url: window.MARKETPLACE_URL + '/user/register',
-            type: 'POST',
-            contentType: 'application/json',
-            data: JSON.stringify({
-                username: $('#email').val(),
-                password: $('#password').val(),
-                name: $('#name').val(),
-                address: $('#address').val()
-            }),
-            success: postRegister
-        });
-    });
-
     // Logout Function
     $('#logout-button').on('click', (e) => {
         e.preventDefault();

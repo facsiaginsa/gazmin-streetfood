@@ -103,17 +103,6 @@ function showUserProfile() {
     );
 }
 
-function postRegister(response) {
-    if (response.code === 0) {
-        window.location.href = '/login?message="' + response.message + '"'
-    }
-
-    if (response.code != 0) {
-        // give message to user --> response.message
-        console.log(response)
-    }
-}
-
 function goToSceneByStallId(stallId) {
     let sceneId
     let infohotspot

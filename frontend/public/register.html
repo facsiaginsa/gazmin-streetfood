@@ -18,4 +18,33 @@
     $('#to-login').on('click', () => {
         callModal('login');
     });
+
+    // Register Function
+    $('#register-button').on('click', (e) => {
+        e.preventDefault();
+
+        $.ajax({
+            url: window.MARKETPLACE_URL + '/user/register',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({
+                username: $('#email').val(),
+                password: $('#password').val(),
+                name: $('#name').val(),
+                address: $('#address').val()
+            }),
+            success: postRegister
+        });
+    });
+
+    function postRegister(response) {
+        if (response.code === 0) {
+            callModal("login")
+        }
+
+        if (response.code != 0) {
+            // give message to user --> response.message
+            console.log(response)
+        }
+    }
 </script>
