@@ -686,12 +686,7 @@ form a {
 }
 
 #modal-content {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     width: calc(100vw - 30px);
-    height: calc(100vh - 30px);
     padding: 30px;
     background-color: #fff;
     color: #212121;
@@ -863,7 +858,7 @@ form a {
     padding: 15px 0 0;
 }
 
-.menu-product-list + .menu-product-list {
+.menu-product-list+.menu-product-list {
     margin-top: 15px;
     border-top: solid 1px #ddd;
 }
@@ -954,7 +949,7 @@ form a {
     }
 
     #modal-content {
-        height: initial;
+        /* height: initial; */
         max-width: 500px;
         max-height: calc(100vh - 180px);
     }
