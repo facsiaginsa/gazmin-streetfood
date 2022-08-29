@@ -40,6 +40,14 @@ a:visited {
     text-decoration: none;
 }
 
+hr {
+    border: none;
+    width: 100%;
+    height: 1px;
+    margin: 15px 0;
+    background: #ddd;
+}
+
 #pano {
     position: absolute;
     top: 0;
@@ -659,26 +667,48 @@ form button,
     cursor: pointer;
 }
 
-#user-info>div {
+#user-info>div,
+#modal-content .recipient-info>div {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
 }
 
-#user-info>div span:first-child {
+#user-info>div span:first-child,
+#modal-content .recipient-info>div span:first-child {
     width: 80px;
 }
 
-#user-info>div span:first-child::after {
+#user-info>div span:first-child::after,
+#modal-content .recipient-info>div span:first-child::after {
     content: ":";
     display: block;
     float: right;
 }
 
-#user-info>div span:last-child {
+#user-info>div span:last-child,
+#modal-content .recipient-info>div span:last-child {
     flex: 1;
     text-align: left;
+}
+
+.total-price {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+}
+
+.total-price span:last-child {
+    flex: 1;
+    text-align: right;
+
+}
+
+.text-right {
+    text-align: right;
 }
 
 form p {

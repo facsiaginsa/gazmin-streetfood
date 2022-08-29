@@ -34,7 +34,7 @@
 
                 $.each(products, displayCheckout)
                 let totalPrice = 0
-                
+
                 for (let i in products) {
                     console.log(products[i])
                     // console.log(parseInt(product.price), product.amount)
@@ -46,6 +46,19 @@
             }
         }
     })
+
+    function displayUserInformation() {
+        $('#modal-content').append(
+            '<div class="recipient-info">' +
+            '<div>' +
+            '<span>Recipient</span><span>' + sessionStorage.getItem("name") + '</span>' +
+            '</div>' +
+            '<div>' +
+            '<span>Address</span><span>' + sessionStorage.getItem("address") + '</span>' +
+            '</div>' +
+            '</div><hr>'
+        )
+    }
 
     function displayCheckout(index, product) {
         /* Available field:
@@ -61,17 +74,21 @@
             product.photo
         */
         $('#modal-content').append(
+            '<div class="menu-product-list">' +
+            '<img src=' + product.photo + '>' +
             '<div>' +
-                'name: ' + product.name +
+            '<div id=' + product.id + '>' +
+            '<div class="menu-product-name">' +
+            product.name +
             '</div>' +
-            '<div>' +
-                'description: ' + product.description +
+            '<div class="menu-product-description">' +
+            product.description +
             '</div>' +
-            '<div>' +
-                'amount: ' + product.amount +
+            '<div class="menu-product-buy">' +
+            '<span class="text-right">' + (sessionStorage.getItem("counter-" + product.id) ?? 0) + ' x Rp ' + product.price.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + ',-</span>' +
             '</div>' +
-            '<div>' +
-                'Sub total price: ' + product.amount * parseInt(product.price) +
+            '</div>' +
+            '</div>' +
             '</div>'
         );
     }
@@ -79,19 +96,9 @@
     function displayTotalPrice(totalPrice) {
         $('#modal-content').append(
             '<hr>' +
-            '<div>Total Price: Rp' + totalPrice + ' </div>'
-        )
-    }
-
-    function displayUserInformation() {
-        $('#modal-content').append(
-            '<div>' +
-                'receiver: ' + sessionStorage.getItem("name") +
-            '</div>' +
-            '<div>' +
-                'address: ' + sessionStorage.getItem("address") +
-            '</div>' +
-            '<hr>'
-        )
+            '<div class="total-price">' +
+            '<span>Total Price</span><span>Rp' + totalPrice.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1.") + '</span>' +
+            '</div>'
+        );
     }
 </script>
