@@ -86,12 +86,12 @@ $(document).ready(() => {
     $('[id^="stall-"]').on('click', function () {
 
         if (sessionStorage.getItem('name')) {
-            let stallId = this.id.replace('stall-', '')
-            callModal('menu', stallId)
+            let stallId = this.id.replace('stall-', '');
+            callModal('menu', stallId);
         }
 
         if (!sessionStorage.getItem('name')) {
-            callModal('user')
+            callModal('login');
         }
     })
 })
