@@ -17,15 +17,15 @@
     <div class="searchbox">
         <input type="text" name="search" id="search" placeholder="Type to search any foods or drinks...">
         <div id="search-filters" class="hidden">
-            <input type="number" name="" id="minimum-price" min="0" placeholder="Min Price">
-            <input type="number" name="" id="maximum-price" min="0" placeholder="Max Price">
-            <select name="" id="">
-                <option value="">Display All</option>
-                <option value="">Meals</option>
-                <option value="">Drinks</option>
-                <option value="">Fruits</option>
-                <option value="">Snacks</option>
-                <option value="">Sweets</option>
+            <input type="number" name="minimum-price" id="minimum-price" min="0" placeholder="Min Price">
+            <input type="number" name="maximum-price" id="maximum-price" min="0" placeholder="Max Price">
+            <select name="categories" id="categories">
+                <option value="disabled">Categories</option>
+                <option value="meals">Meals</option>
+                <option value="drinks">Drinks</option>
+                <option value="fruits">Fruits</option>
+                <option value="snacks">Snacks</option>
+                <option value="sweets">Sweets</option>
             </select>
         </div>
         <div id="search-results" class="search-results"></div>

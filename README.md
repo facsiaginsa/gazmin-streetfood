@@ -4,11 +4,19 @@ Gazmin Streetfood is a 3 Dimention Marketplace for Indonesian Streetfood. The us
 
 ![Gazmin Home Page](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin.png?raw=true)
 
+We also provide live search bar, if you click the search result, than you will go to the stall directly.
+
 ![Gazmin Search Streetfood](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-search.png?raw=true)
+
+You can click the stall icon, and see what product they offer
 
 This is the Application Architecture:
 
 ![Gazmin Architecture](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-architecture.png?raw=true)
+
+This app is consist of 3 Apps, 2 Redis, 1 Minio. The marketplace microservices is handling request related to marketplace (user management, product, cart, checkout) while the streetview microservices is handling request related to streetview data. Each microservices store their data on seperate Redis Stack.
+
+Minio is used to store the product image, and streetview image.
 
 # Overview video (Optional)
 

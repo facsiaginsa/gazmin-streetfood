@@ -58,7 +58,10 @@ function callModal(content, params) {
 //Add Dom for each search result
 function displaySearchResult(index, product) {
 
-    $('#search + .search-results').append(
+    console.log("product", product)
+    
+    //$('#search + .search-results').append(
+    $('#search-results').append(
         `<div onclick="goToSceneByStallId('` + product.stall.id + `')">` +
         '<img src="' + product.photo + '" class="thumbnail">' +
         '<div>' +
@@ -115,6 +118,7 @@ function goToSceneByStallId(stallId) {
     let sceneId
     let infohotspot
 
+    
     for (let element in data.scenes) {
         let foundHotspot = data.scenes[element].infoHotspots.find(function (hotspot) {
             return hotspot.stall.id == this

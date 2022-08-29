@@ -43,24 +43,40 @@ $(document).ready(() => {
         let searchDelay = 250; // in miliseconds
 
         //On keyup, start the countdown delay
-        $('#search').on('change paste keyup', () => {
+        $('#search,#minimum-price,#maximum-price,#categories').on('change paste keyup', () => {
             clearTimeout(typingTimer);
 
             if (!$('#search').val()) {
-                $('#search + .search-results').empty();
+                $('#search-results').empty();
             }
 
             typingTimer = setTimeout(() => {
                 let word = $('#search').val()
+                let minPrice = $('#minimum-price').val()
+                let maxPrice = $('#maximum-price').val()
+                let categories = $('#categories').val()
+
+                let query = 'word=' + word
+
+                if (minPrice && maxPrice) {
+                    query += '&price_range=' + minPrice + '-' + maxPrice
+                }
+
+                if (categories != 'disabled') {
+                    query += '&categories=' + categories
+                }
+
+                // console.log(query)
+                // word, price_range, categories
                 // console.log(window.MARKETPLACE_URL + '/product?word="' + word + '"')
 
                 if ($('#search').val()) {
                     $.ajax({
-                        url: window.MARKETPLACE_URL + '/product?word=' + word,
+                        url: window.MARKETPLACE_URL + '/product?' + query,
                         type: 'GET',
                         contentType: 'application/json',
                         success: (response) => {
-                            $('#search + .search-results').empty();
+                            $('#search-results').empty();
 
                             if (response.code === 0) {
                                 if (response.count > 0) {

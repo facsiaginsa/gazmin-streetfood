@@ -210,7 +210,7 @@ function switchScene(scene, initialYaw) {
     scene.view.setParameters(initial);
     scene.scene.switchTo();
     currentScene = scene
-    console.log(scene.id)
+    console.log(scene.data.id)
     startAutorotate();
     // updateSceneName(scene);
     // updateSceneList(scene);
@@ -319,7 +319,6 @@ function createInfoHotspotElement(hotspot) {
     // Create hotspot/tooltip header.
     var header = document.createElement('div');
     header.classList.add('info-hotspot-header');
-    console.log("set id for stall " + hotspot.stall.id );
     header.setAttribute("id", "stall-" + hotspot.stall.id);
 
     // Create image element.
