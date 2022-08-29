@@ -971,6 +971,10 @@ form a {
     text-align: center;
 }
 
+#order-note {
+    margin: 15px 0 0;
+}
+
 #close-modal {
     width: 25px;
     height: 25px;
