@@ -3,16 +3,14 @@
 $(document).ready(() => {
     $('#nav-cart').on('click', () => {
 
-        if (!sessionStorage.getItem("name")) {
-            callModal("user")
-        }
-
-        if (sessionStorage.getItem("name")) {
+        if (!sessionStorage.getItem('name')) {
+            callModal('login')
+        } else {
             callModal('cart');
         }
-        
+
     });
-    
+
     $('#nav-user').on('click', () => {
         callModal('user');
     });
@@ -85,15 +83,15 @@ $(document).ready(() => {
         });
     }
 
-    $('[id^="stall-"]').on('click', function() {
+    $('[id^="stall-"]').on('click', function () {
 
-        if (sessionStorage.getItem("name")) {
-            let stallId = this.id.replace("stall-", "")
-            callModal("menu", stallId)
+        if (sessionStorage.getItem('name')) {
+            let stallId = this.id.replace('stall-', '');
+            callModal('menu', stallId);
         }
 
-        if (!sessionStorage.getItem("name")) {
-            callModal("user")
+        if (!sessionStorage.getItem('name')) {
+            callModal('login');
         }
     })
 })

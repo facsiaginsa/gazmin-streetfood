@@ -3,8 +3,11 @@
 function modalOpener(target, params) {
     if (target == 'login.html' || target == 'register.html') {
         $('body').addClass('auth');
-        $('body').on('click', "#modal-container", () => {
+        $('body').on('click', '#modal-container', () => {
             callModal();
+        });
+        $('body').on('click', '#modal-content', () => {
+            e.stopPropagation();
         });
     } else {
         $('body').removeClass('auth');
@@ -40,11 +43,9 @@ function callModal(content, params) {
 
 //Add Dom for each search result
 function displaySearchResult(index, product) {
+    console.log('product', product)
 
-    console.log("product", product)
-
-    //$('#search + .search-results').append(
-    $('#search + .search-results').append(
+    $('#search-results').append(
         `<div onclick="goToSceneByStallId('` + product.stall.id + `')">` +
         '<img src="' + product.photo + '" class="thumbnail">' +
         '<div>' +
@@ -57,13 +58,13 @@ function displaySearchResult(index, product) {
 }
 
 function clearSearchResult() {
-    $('#search + .search-results').empty();
+    $('#search-results').empty();
     $('#search').val('')
 }
 
 // Display No search Result
 function displayNoResult() {
-    $('#search + .search-results').append(
+    $('#search-results').append(
         '<div>' +
         '<div>' +
         '<span class="product-stall">Sorry, no result found.</span>' +

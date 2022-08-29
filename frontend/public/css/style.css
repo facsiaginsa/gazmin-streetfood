@@ -686,12 +686,7 @@ form a {
 }
 
 #modal-content {
-    /* position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
     width: calc(100vw - 30px);
-    height: calc(100vh - 30px);
     padding: 30px;
     background-color: #fff;
     color: #212121;
@@ -760,6 +755,7 @@ form a {
     align-items: center;
     gap: 5px;
     margin-bottom: 15px;
+    color: #212121;
 }
 
 
@@ -774,7 +770,7 @@ form a {
     border-radius: 5px;
 }
 
-.search-results:not(:empty) {
+#search-results:not(:empty) {
     width: 100%;
     min-height: 0;
     max-height: calc(100vh - 160px);
@@ -784,7 +780,7 @@ form a {
     overflow-y: auto;
 }
 
-.search-results>div {
+#search-results>div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -795,40 +791,40 @@ form a {
     cursor: pointer;
 }
 
-.search-results>div:hover {
+#search-results>div:hover {
     opacity: .85;
 }
 
-.search-results>div:last-child {
+#search-results>div:last-child {
     padding-bottom: none;
     border-bottom: none;
 }
 
-.search-results .thumbnail {
+#search-results .thumbnail {
     width: 45px;
     height: 45px;
     background-color: #ddd;
     border: solid 1px #aaa;
 }
 
-.search-results .thumbnail+div {
+#search-results .thumbnail+div {
     flex: 1;
     min-width: 0;
 }
 
-.search-results .product-name {
+#search-results .product-name {
     margin: 5px 0;
     font-size: 18px;
     font-weight: bold;
 }
 
-.search-results .product-stall {
+#search-results .product-stall {
     font-size: 14px;
     color: #888
 }
 
-.search-results .product-name,
-.search-results .product-stall {
+#search-results .product-name,
+#search-results .product-stall {
     display: inline-block;
     width: 100%;
     white-space: nowrap;
@@ -836,7 +832,7 @@ form a {
     text-overflow: ellipsis;
 }
 
-.search-results .next-arrow {
+#search-results .next-arrow {
     width: 12px;
     height: 30px;
     background: url(../img/caretright.svg) center center no-repeat;
@@ -862,7 +858,7 @@ form a {
     padding: 15px 0 0;
 }
 
-.menu-product-list + .menu-product-list {
+.menu-product-list+.menu-product-list {
     margin-top: 15px;
     border-top: solid 1px #ddd;
 }
@@ -953,7 +949,7 @@ form a {
     }
 
     #modal-content {
-        height: initial;
+        /* height: initial; */
         max-width: 500px;
         max-height: calc(100vh - 180px);
     }
@@ -966,7 +962,7 @@ form a {
         max-height: calc(100vh - 320px);
     }
 
-    .search-results:not(:empty) {
+    #search-results:not(:empty) {
         max-height: 50vh;
     }
 }

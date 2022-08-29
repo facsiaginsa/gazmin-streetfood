@@ -24,7 +24,7 @@ $.ajax({
     type: "GET",
     url: STREETVIEW_URL + "/app/data",
     async: false,
-    success: function(response) {
+    success: function (response) {
         data = response.marzipano
     }
 })
@@ -211,6 +211,7 @@ function switchScene(scene, initialYaw) {
     scene.scene.switchTo();
     currentScene = scene
     console.log(scene.data.id)
+    localStorage.setItem('lastOpenedScene', scene.data.id);
     startAutorotate();
     // updateSceneName(scene);
     // updateSceneList(scene);
@@ -418,5 +419,11 @@ function findSceneDataById(id) {
 
 (function () {
     // Display the initial scene.
-    switchScene(scenes[0]);
+    let lastOpenedScene = localStorage.getItem('lastOpenedScene');
+
+    if (lastOpenedScene) {
+        switchScene(scenes[lastOpenedScene.split("-")[0]]);
+    } else {
+        switchScene(scenes[0]);
+    }
 })();
