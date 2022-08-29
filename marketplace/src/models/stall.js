@@ -3,7 +3,7 @@ const app = require("../loaders/fastify")
 
 const searchAllStall = async () => {
     try {
-        return await app.redis.call("FT.SEARCH", db.schema.stall, "*")
+        return await app.redis.call("FT.SEARCH", db.schema.stall, "*", "LIMIT", "0", "50")
     } catch (error) {
         app.log.error(error)
     }

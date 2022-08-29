@@ -38,6 +38,9 @@ module.exports = async (word, price_range, categories) => {
     let [formattedResult, formattedStall] = await Promise.all([formatConvert(result), formatConvert(stall)])
 
     if (formattedResult.count > 0) {
+
+        console.log(formattedStall)
+
         formattedResult.data.map(stallIdToObject, formattedStall)
     }
 
