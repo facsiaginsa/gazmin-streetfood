@@ -774,7 +774,7 @@ form a {
     border-radius: 5px;
 }
 
-.search-results:not(:empty) {
+#search-results:not(:empty) {
     width: 100%;
     min-height: 0;
     max-height: calc(100vh - 160px);
@@ -784,7 +784,7 @@ form a {
     overflow-y: auto;
 }
 
-.search-results>div {
+#search-results>div {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -795,40 +795,40 @@ form a {
     cursor: pointer;
 }
 
-.search-results>div:hover {
+#search-results>div:hover {
     opacity: .85;
 }
 
-.search-results>div:last-child {
+#search-results>div:last-child {
     padding-bottom: none;
     border-bottom: none;
 }
 
-.search-results .thumbnail {
+#search-results .thumbnail {
     width: 45px;
     height: 45px;
     background-color: #ddd;
     border: solid 1px #aaa;
 }
 
-.search-results .thumbnail+div {
+#search-results .thumbnail+div {
     flex: 1;
     min-width: 0;
 }
 
-.search-results .product-name {
+#search-results .product-name {
     margin: 5px 0;
     font-size: 18px;
     font-weight: bold;
 }
 
-.search-results .product-stall {
+#search-results .product-stall {
     font-size: 14px;
     color: #888
 }
 
-.search-results .product-name,
-.search-results .product-stall {
+#search-results .product-name,
+#search-results .product-stall {
     display: inline-block;
     width: 100%;
     white-space: nowrap;
@@ -836,7 +836,7 @@ form a {
     text-overflow: ellipsis;
 }
 
-.search-results .next-arrow {
+#search-results .next-arrow {
     width: 12px;
     height: 30px;
     background: url(../img/caretright.svg) center center no-repeat;
@@ -966,7 +966,7 @@ form a {
         max-height: calc(100vh - 320px);
     }
 
-    .search-results:not(:empty) {
+    #search-results:not(:empty) {
         max-height: 50vh;
     }
 }
