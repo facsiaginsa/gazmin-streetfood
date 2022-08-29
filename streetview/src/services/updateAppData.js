@@ -14,11 +14,11 @@ module.exports = async () => {
     // jsondata.scenes.map(appendStallToAppData, stall)
 
     // console.log(newJsonData.scenes[11].infoHotspots)
-    let data = await saveStreetviewData(newJsonData)
+    await saveStreetviewData(newJsonData)
 
     response.code = 0
     response.message = "Update streetview data success"
-    response.marzipano = jsondata
+    response.marzipano = newJsonData
 
     return response
 }
