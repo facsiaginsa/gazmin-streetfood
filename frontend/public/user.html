@@ -15,15 +15,18 @@
 
     if (sessionStorage.getItem("name")) {
         $('#user-info').append(
-        '<div>' +
-            'name: ' + sessionStorage.getItem("name") +
-        '</div>' +
-        '<div>' +
-            'email: ' + sessionStorage.getItem("email") +
-        '</div>' +
-        '<div>' +
-            'address: ' + sessionStorage.getItem("address") +
-        '</div>'
+            '<div>' +
+                'name: ' + sessionStorage.getItem("name") +
+            '</div>' +
+            '<div>' +
+                'email: ' + sessionStorage.getItem("email") +
+            '</div>' +
+            '<div>' +
+                'address: ' + sessionStorage.getItem("address") +
+            '</div>' +
+            '<div>' +
+                '<button id="logout-button">Logout</button>' +
+            '</div>'
         );
     } else {
         $('#user-info').append(
@@ -33,5 +36,13 @@
 
     $('#to-login').on('click', () => {
         callModal('login');
+    });
+
+    // Logout Function
+    $('#logout-button').on('click', (e) => {
+        e.preventDefault();
+        sessionStorage.clear();
+
+        window.location.href = '/'
     });
 </script>

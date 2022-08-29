@@ -21,12 +21,6 @@ $(document).ready(() => {
         callModal();
     });
 
-    // Logout Function
-    $('#logout-button').on('click', (e) => {
-        e.preventDefault();
-        sessionStorage.clear();
-    });
-
     // Search function
     {
         let typingTimer // timer object

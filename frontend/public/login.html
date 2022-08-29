@@ -40,7 +40,7 @@
             sessionStorage.setItem('email', response.userData.username)
             sessionStorage.setItem('id', response.userData.user_id)
 
-            window.location.href = '/?message="' + response.message + '"'
+            window.location.href = '/'
         }
 
         if (response.code != 0) {
