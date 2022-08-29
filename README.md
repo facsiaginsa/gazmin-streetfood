@@ -10,6 +10,8 @@ We also provide live search bar, if you click the search result, than you will g
 
 You can click the stall icon, and see what product they offer
 
+
+
 This is the Application Architecture:
 
 ![Gazmin Architecture](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-architecture.png?raw=true)
@@ -200,6 +202,20 @@ To make deploys work, you need to create free account on [Redis Cloud](https://r
 
 ### Google Cloud Run
 
+Deploy Frontend
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=frontend)
+
+Deploy Marketplace
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=marketplace)
+
+After successfully deployed, create some ``env`` on your cloud run instance. read ``marketplace/env.example`` for required env.
+
+Deploy Streetview
+[![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run?dir=streetview)
+
+After successfully deployed, create some ``env`` on your cloud run instance. read ``streetview/env.example`` for required env.
+
 [Insert Run on Google button](https://cloud.google.com/blog/products/serverless/introducing-cloud-run-button-click-to-deploy-your-git-repos-to-google-cloud)
 
 Note that you must provide **REDIS & MINIO** beside Google Cloud Run to make this app works.
+
