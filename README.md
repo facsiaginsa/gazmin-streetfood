@@ -22,7 +22,7 @@ Meanwhile, Minio is used to store the product and streetview images.
 
 Here's a short video that explains the project and how it uses Redis :
 
-[![Embed your YouTube video](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-streetfood-thumbnail.png?raw=true)](https://www.youtube.com/watch?v=vyxdC1qK4NE)
+[![Gazmin Explanation Video](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin-streetfood-thumbnail.png?raw=true)](https://youtu.be/fkjYYaPKh6M)
 
 ## How it Works
 
@@ -32,7 +32,7 @@ This app need 2 Redis stack, 1 for the marketplace and 1 for the streetview.
 
 1. Redis for Marketplace
 
-    This is the main database, it is used to store all data related to the marketplace. First, we need 3 with Schema type: hash
+    This is the main database, it is used to store all data related to the marketplace. First, we need 3 Schema type: hash
 
     
     Index Name  | Schema
