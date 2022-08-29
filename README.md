@@ -274,6 +274,10 @@ Note: This setup will only deploy the frontend and use the backend on our cloud 
 
 Now you can access the App from ``http://localhost:8080``
 
+You can use our demo login:
+- username: coba@test.com
+- password: cobatest
+
 ## Deployment
 
 To make deploys work, you need to create free account on [Redis Cloud](https://redis.info/try-free-dev-to)
