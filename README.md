@@ -1,6 +1,6 @@
 # Gazmin Streetfood
 
-Gazmin Streetfood is a 3 Dimensions Marketplace for Indonesian Streetfood. It's users will feel the experience of visiting the place while shopping virtually. Right now, this app **is not working well with SAFARI browser**, please use other browser instead such as **GOOGLE CHROME** or other Chromium-based web browser.
+Gazmin Streetfood is a 3 Dimensional Virtual Marketplace for Indonesian Streetfood. It's users will feel the experience of visiting the place while shopping virtually. Right now, this app **is not working well with SAFARI browser**, please use other browser instead such as **GOOGLE CHROME** or other Chromium-based web browser.
 
 ![Gazmin Home Page](https://github.com/facsiaginsa/gazmin-streetfood/blob/main/gazmin.png?raw=true)
 

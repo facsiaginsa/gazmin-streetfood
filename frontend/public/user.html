@@ -16,13 +16,13 @@
     if (sessionStorage.getItem("name")) {
         $('#user-info').append(
             '<div>' +
-                'name: ' + sessionStorage.getItem("name") +
+                '<span>Name</span><span>' + sessionStorage.getItem("name") + '</span>' +
             '</div>' +
             '<div>' +
-                'email: ' + sessionStorage.getItem("email") +
+                '<span>E-Mail</span><span>' + sessionStorage.getItem("email") + '</span>' +
             '</div>' +
             '<div>' +
-                'address: ' + sessionStorage.getItem("address") +
+                '<span>Address</span><span>' + sessionStorage.getItem("address") + '</span>' +
             '</div>' +
             '<div>' +
                 '<button id="logout-button">Logout</button>' +

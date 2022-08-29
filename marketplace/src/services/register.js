@@ -6,7 +6,7 @@ module.exports = async (username, password, name, address) => {
 
     if (isAvailable[0] != 0) return {
         code: 1,
-        message: "Username is already available, please use another username"
+        message: "Username is unavailable, please choose other username!"
     }
 
     let newPassword = await hashPassword(password)
@@ -15,6 +15,6 @@ module.exports = async (username, password, name, address) => {
 
     return {
         code: 0,
-        message: "Username Created"
+        message: "Username created!"
     }
 }
