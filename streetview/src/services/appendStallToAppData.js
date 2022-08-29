@@ -1,25 +1,59 @@
 function findStall(element){
-    return element.scene_id == this
+    return element.id.split("-")[0] == this
 }
 
-module.exports = function appendStallToAppData(scene) {
+function deleteDefaultStall(element){
+    element.infoHotspots = []
+    return element
+}
 
-    let newScene = scene
-    newScene.infoHotspots = []
+module.exports = function appendStallToAppData(appData, stall) {
+    let newAppData = appData
 
-    let id = scene.id.split("-")[0]
+    newAppData.scenes.map(deleteDefaultStall)
 
-    let stall = this.data.find(findStall, id)
+    for(let i in stall.data) {
+        let sceneIndex = newAppData.scenes.findIndex(findStall, stall.data[i].scene_id)
 
-    if (stall) {
-        newScene.infoHotspots.push({
-            yaw: parseFloat(stall.yaw),
-            pitch: parseFloat(stall.pitch),
-            title: stall.name,
-            text: stall.description,
-            stall
+        console.log("push stall:" + stall.data[i].name + " to " + sceneIndex)
+
+        newAppData.scenes[sceneIndex].infoHotspots.push({
+            yaw: parseFloat(stall.data[i].yaw),
+            pitch: parseFloat(stall.data[i].pitch),
+            title: stall.data[i].name,
+            text: stall.data[i].description,
+            stall: stall.data[i]
         })
     }
-    
-    return newScene
+
+    return newAppData
 }
+
+// module.exports = function appendStallToAppData(scene) {
+
+//     let newScene = scene
+//     newScene.infoHotspots = []
+
+//     let id = scene.id.split("-")[0]
+
+//     let stall = this.data.find(findStall, id)
+
+//     if (stall) {
+
+//         console.log("push stall:" + stall.name + " to " + id)
+
+//         newScene.infoHotspots.push({
+//             yaw: parseFloat(stall.yaw),
+//             pitch: parseFloat(stall.pitch),
+//             title: stall.name,
+//             text: stall.description,
+//             stall
+//         })
+//     }
+
+//     if (!stall) {
+
+//     }
+    
+//     return newScene
+// }

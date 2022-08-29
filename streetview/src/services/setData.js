@@ -6,9 +6,11 @@ module.exports = async (jsondata) => {
     let response = {}
     let stall = await getAllStall()
 
-    jsondata.scenes.map(appendStallToAppData, stall)
-
-    let data = await saveStreetviewData(jsondata)
+    // jsondata.scenes.map(appendStallToAppData, stall)
+    let newJsonData = appendStallToAppData(jsondata, stall)
+    
+    let data = await saveStreetviewData(newJsonData)
+    // let data = await saveStreetviewData(jsondata)
 
     response.code = 0
     response.message = "Save streetview data success"
