@@ -169,13 +169,8 @@ function displayStallMenu(index, product) {
         '</div>' +
         '</div>' +
         '</div>' +
-        '</div>' +
-        '<button id="to-cart">Proceed to Cart</button>'
+        '</div>'
     );
-
-    $('#to-cart').on('click', () => {
-        callModal('cart');
-    });
 }
 
 function displayNoStallMenu(message) {

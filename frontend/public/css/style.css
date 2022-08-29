@@ -892,6 +892,10 @@ form a {
     border: solid 1px #aaa;
 }
 
+.menu-product-list>div {
+    width: 100%;
+}
+
 .menu-product-list .menu-product-name {
     margin-bottom: 5px;
     font-size: 18px;
@@ -935,6 +939,7 @@ form a {
 #close-modal {
     width: 25px;
     height: 25px;
+    margin: 0;
     background: url(../img/closemodal.svg) center center no-repeat;
     background-size: contain;
     border: none;
