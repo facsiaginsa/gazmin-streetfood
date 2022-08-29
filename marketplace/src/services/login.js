@@ -1,6 +1,6 @@
 const { comparePassword } = require("../loaders/bcrypt")
 const app = require("../loaders/fastify")
-const { searchUserPassword, searchUser } = require("../models/user")
+const { searchUser } = require("../models/user")
 
 module.exports = async (username, password) => {
     const user = await searchUser(username)
@@ -29,9 +29,6 @@ module.exports = async (username, password) => {
 
     let token = app.jwt.sign(userData)
     userData.token = token
-    
-    $('#nav-user').removeClass('loggedout');
-    $('#nav-user').addClass('loggedin');
 
     return {
         code: 0,
