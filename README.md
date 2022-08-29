@@ -34,13 +34,13 @@ This app need 2 Redis stack, 1 for the marketplace and 1 for the streetview.
 
     This is the main database, it is used to store all data related to the marketplace. First, we need 3 with Schema type: hash
 
-    ```
+    
     Index Name  | Schema
     ----------- | -------------
     user_idx    | FT.CREATE user_idx PREFIX 1 user: SCHEMA user TEXT mail TEXT password TEXT name TEXT address TEXT
     product_idx | FT.CREATE product_idx PREFIX 1 product: SCHEMA name TEXT description TEXT price NUMERIC photo TEXT stock NUMERIC rating NUMERIC stall TAG category TAG
     stall_idx   | FT.CREATE stall_idx PREFIX 1 stall: SCHEMA name TEXT description TEXT yaw NUMERIC pitch NUMERIC scene_id TEXT rating NUMERIC
-    ```
+    
 
     And then, for each schema we add the data like these :
 
